@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - 碳路者·青碳行</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body data-page="profile">
+    <div class="phone-container">
+        <!-- 顶部状态栏 -->
+        <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
+            <div class="text-gray-400 text-sm">2026年3月29日</div>
+            <div class="flex items-center gap-1">
+                <i class="ph-bold ph-cell-signal-full text-sm text-gray-600"></i>
+                <i class="ph-bold ph-wifi-high text-sm text-gray-600"></i>
+                <i class="ph-bold ph-battery-full text-sm text-gray-600"></i>
+            </div>
+        </div>
+
+        <!-- 可滚动内容区 -->
+        <div class="scrollable-content">
+            <!-- 用户信息头部 -->
+            <div class="bg-gradient-to-br from-emerald-500 to-teal-600 px-4 pt-4 pb-6">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-white font-semibold text-base">个人中心</span>
+                    <div class="profile-menu-item flex items-center gap-3" data-type="settings">
+                        <i class="ph-bold ph-gear text-white text-xl"></i>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center overflow-hidden border-2 border-white/30">
+                        <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/dcd31a5496fe4151ba6851123f2f3cfa.jpg" alt="头像" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-white font-bold text-lg">小碳</span>
+                            <span class="bg-white/20 text-white text-xs px-2 py-0.5 rounded-full">LV.4 低碳先锋</span>
+                        </div>
+                        <div class="text-emerald-100 text-sm">同济大学 · 环境工程学院</div>
+                        <div class="flex items-center gap-1 mt-1">
+                            <i class="ph-bold ph-seal-check text-yellow-300 text-sm"></i>
+                            <span class="text-emerald-200 text-xs">已认证学生</span>
+                        </div>
+                    </div>
+                    <div class="bg-white/20 rounded-full px-3 py-1.5">
+                        <span class="text-white text-sm font-medium">编辑</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 数据统计卡片 -->
+            <div class="px-4 -mt-4">
+                <div class="bg-white rounded-2xl p-4 shadow-sm">
+                    <div class="grid grid-cols-4 gap-2 text-center">
+                        <div>
+                            <div class="text-xl font-bold text-gray-800 carbon-score">1,286</div>
+                            <div class="text-gray-400 text-xs mt-1">碳积分</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold text-gray-800 total-carbon">24.5</div>
+                            <div class="text-gray-400 text-xs mt-1">总减碳(kg)</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold text-gray-800">3</div>
+                            <div class="text-gray-400 text-xs mt-1">种树(棵)</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold text-gray-800">12</div>
+                            <div class="text-gray-400 text-xs mt-1">成就</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 碳排放趋势图表 -->
+            <div class="px-4 mt-4">
+                <div class="bg-white rounded-2xl p-4 shadow-sm">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-800 font-semibold text-base">本周碳足迹趋势</span>
+                        <span class="text-emerald-600 text-xs bg-emerald-50 px-2 py-0.5 rounded-full">本周 ↓12%</span>
+                    </div>
+                    <div id="chart" class="w-full h-40"></div>
+                    <div class="flex items-center justify-center gap-6 mt-2 text-xs text-gray-400">
+                        <div class="flex items-center gap-1">
+                            <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                            <span>日减碳量(g)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 周报入口 -->
+            <div class="px-4 mt-4">
+                <div class="weekly-report-card bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center">
+                            <i class="ph-bold ph-chart-line-down text-emerald-600 text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="text-gray-800 font-medium text-sm mb-1">本周减碳周报</div>
+                            <div class="text-gray-500 text-xs">累计减碳 2.4kg，相当于种植 0.2 棵树</div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 功能菜单 -->
+            <div class="px-4 mt-4">
+                <div class="bg-white rounded-2xl p-2 shadow-sm">
+                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" data-type="achievements">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
+                                <i class="ph-bold ph-trophy text-blue-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 font-medium text-sm">我的成就</div>
+                                <div class="text-gray-400 text-xs">已获得 12 个成就</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-400"></i>
+                    </div>
+                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" data-type="trees">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center">
+                                <i class="ph-bold ph-tree text-green-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 font-medium text-sm">我的树苗</div>
+                                <div class="text-gray-400 text-xs">已种植 3 棵</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-400"></i>
+                    </div>
+                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" data-type="history">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center">
+                                <i class="ph-bold ph-clock-counter-clockwise text-orange-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 font-medium text-sm">历史记录</div>
+                                <div class="text-gray-400 text-xs">查看所有打卡记录</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-400"></i>
+                    </div>
+                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" data-type="cart">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+                                <i class="ph-bold ph-shopping-cart text-emerald-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 font-medium text-sm">购物车</div>
+                                <div class="text-gray-400 text-xs">查看已添加的商品</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-400"></i>
+                    </div>
+                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" data-type="orders">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center">
+                                <i class="ph-bold ph-receipt text-purple-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 font-medium text-sm">我的订单</div>
+                                <div class="text-gray-400 text-xs">查看兑换记录</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 其他功能 -->
+            <div class="px-4 mt-4 pb-4">
+                <div class="bg-white rounded-2xl p-2 shadow-sm">
+                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
+                                <i class="ph-bold ph-bell text-gray-500"></i>
+                            </div>
+                            <div class="text-gray-800 font-medium text-sm">消息通知</div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">3</span>
+                            <i class="ph-bold ph-caret-right text-gray-400"></i>
+                        </div>
+                    </div>
+                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
+                                <i class="ph-bold ph-question text-gray-500"></i>
+                            </div>
+                            <div class="text-gray-800 font-medium text-sm">帮助与反馈</div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-400"></i>
+                    </div>
+                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
+                                <i class="ph-bold ph-info text-gray-500"></i>
+                            </div>
+                            <div class="text-gray-800 font-medium text-sm">关于我们</div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="bg-white border-t border-gray-100 px-4 py-2 flex items-center justify-around">
+            <a href="index.html" class="flex flex-col items-center py-1 text-gray-400">
+                <i class="ph-bold ph-house text-xl"></i>
+                <span class="text-xs mt-0.5">首页</span>
+            </a>
+            <a href="checkin.html" class="flex flex-col items-center py-1 text-gray-400">
+                <i class="ph-bold ph-check-square text-xl"></i>
+                <span class="text-xs mt-0.5">打卡</span>
+            </a>
+            <a href="social.html" class="flex flex-col items-center py-1 text-gray-400">
+                <i class="ph-bold ph-users text-xl"></i>
+                <span class="text-xs mt-0.5">动态</span>
+            </a>
+            <a href="mall.html" class="flex flex-col items-center py-1 text-gray-400 relative">
+                <i class="ph-bold ph-storefront text-xl"></i>
+                <span class="text-xs mt-0.5">商城</span>
+                <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center py-1 tab-active">
+                <i class="ph-bold ph-user-circle text-xl"></i>
+                <span class="text-xs mt-0.5">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="js/mock-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

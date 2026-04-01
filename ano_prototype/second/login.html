@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>碳路者·青碳行 - 登录与认证</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+</head>
+<body class="bg-slate-50 flex justify-center items-center min-h-screen">
+<div class="w-[375px] h-[812px] bg-white rounded-[40px] shadow-2xl overflow-hidden relative border-[8px] border-slate-900 px-8">
+<div class="mt-20 flex flex-col items-center">
+<div class="w-20 h-20 bg-emerald-500 rounded-3xl flex items-center justify-center shadow-lg shadow-emerald-200">
+<iconify-icon class="text-white text-4xl" icon="ph:leaf-bold"></iconify-icon>
+</div>
+<h1 class="text-2xl font-bold text-gray-800 mt-6 italic">碳路者 · 青碳行</h1>
+<p class="text-gray-400 text-sm mt-2">绿色校园，低碳生活</p>
+</div>
+<!-- 登录表单 -->
+<div class="mt-12 space-y-6">
+<div class="space-y-2">
+<label class="text-xs font-bold text-gray-500 ml-1">手机号码</label>
+<div class="relative">
+<span class="absolute left-4 top-3.5 text-gray-400 text-sm">+86</span>
+<input class="w-full bg-gray-50 border-none rounded-2xl py-3.5 pl-14 pr-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="输入手机号" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-gray-500 ml-1">验证码</label>
+<div class="relative">
+<input class="w-full bg-gray-50 border-none rounded-2xl py-3.5 px-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="输入6位验证码" type="text"/>
+<button class="absolute right-3 top-2 text-xs font-bold text-emerald-600 bg-white px-3 py-2 rounded-xl border border-emerald-100">获取验证码</button>
+</div>
+</div>
+<div class="pt-2">
+<a class="block w-full bg-emerald-500 text-white text-center py-4 rounded-2xl font-bold shadow-lg shadow-emerald-100 active:scale-95 transition-transform" href="index.html">
+                    立即登录
+                </a>
+</div>
+</div>
+<!-- 校园认证入口 -->
+<div class="mt-10 p-5 bg-emerald-50 rounded-3xl border border-emerald-100">
+<div class="flex items-center justify-between mb-3">
+<span class="text-sm font-bold text-emerald-800">校园实名认证</span>
+<span class="text-[10px] bg-emerald-200 text-emerald-700 px-2 py-0.5 rounded-full">未认证</span>
+</div>
+<p class="text-xs text-emerald-600 mb-4 leading-relaxed">认证学生身份，解锁专属碳积分加成、校园竞赛及奖学金兑换资格。</p>
+<div class="space-y-3">
+<select class="w-full bg-white border-none rounded-xl py-2 px-3 text-xs text-gray-600 outline-none">
+<option>请选择您的学校</option>
+<option>清华大学</option>
+<option>北京大学</option>
+<option>复旦大学</option>
+<option>同济大学</option>
+</select>
+<input class="w-full bg-white border-none rounded-xl py-2 px-3 text-xs outline-none" placeholder="输入学号" type="text"/>
+</div>
+</div>
+<div class="absolute bottom-10 left-0 w-full px-8 text-center">
+<div class="flex items-center justify-center space-x-2 text-[10px] text-gray-400">
+<input class="rounded text-emerald-500 focus:ring-0" type="checkbox"/>
+<span>我已阅读并同意 <a class="text-emerald-600" href="#">《用户服务协议》</a> 与 <a class="text-emerald-600" href="#">《隐私保护政策》</a></span>
+</div>
+</div>
+</div>
+</body>
+</html>

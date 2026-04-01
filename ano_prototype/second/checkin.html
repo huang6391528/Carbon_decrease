@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>碳路者·青碳行 - 低碳打卡</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+<style>
+        .progress-circle {
+            transform: rotate(-90deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 flex justify-center items-center min-h-screen">
+<div class="w-[375px] h-[812px] bg-white rounded-[40px] shadow-2xl overflow-hidden relative border-[8px] border-slate-900">
+<!-- 顶部 -->
+<div class="px-6 pt-12 pb-6 flex justify-between items-center bg-white">
+<h1 class="text-xl font-bold text-gray-800">低碳打卡</h1>
+<div class="flex bg-emerald-50 px-3 py-1 rounded-full items-center">
+<iconify-icon class="text-emerald-500 mr-1" icon="ph:coin-vertical-fill"></iconify-icon>
+<span class="text-xs font-bold text-emerald-700">1,286</span>
+</div>
+</div>
+<div class="h-[640px] overflow-y-auto pb-24 px-4">
+<!-- 步数统计卡片 -->
+<div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden mb-6">
+<div class="relative z-10 flex justify-between">
+<div>
+<div class="text-emerald-100 text-xs mb-1">今日步数</div>
+<div class="text-4xl font-black">8,642</div>
+<div class="text-[10px] mt-4 flex items-center bg-white/20 w-fit px-2 py-1 rounded-full">
+<iconify-icon class="mr-1" icon="ph:info-bold"></iconify-icon>
+                            预计可收碳能量 32g
+                        </div>
+</div>
+<!-- 圆形进度 -->
+<div class="w-24 h-24 relative flex items-center justify-center">
+<svg class="w-24 h-24 progress-circle">
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="rgba(255,255,255,0.2)" stroke-width="8"></circle>
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="white" stroke-dasharray="251" stroke-dashoffset="60" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<span class="absolute text-xs font-bold">86%</span>
+</div>
+</div>
+<!-- 装饰背景 -->
+<iconify-icon class="absolute -bottom-4 -right-4 text-8xl text-white/10 rotate-12" icon="ph:sneaker-move-bold"></iconify-icon>
+</div>
+<!-- 任务列表 -->
+<h2 class="text-sm font-bold text-gray-800 mb-4 px-1">日常任务 (4/8)</h2>
+<div class="space-y-3">
+<!-- 任务项 -->
+<div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between group">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500">
+<iconify-icon class="text-xl" icon="ph:bowl-food-bold"></iconify-icon>
+</div>
+<div class="ml-3">
+<h3 class="text-sm font-bold text-gray-800">减免一次外卖餐具</h3>
+<p class="text-[10px] text-gray-400">上传订单截图即可获得</p>
+</div>
+</div>
+<button class="bg-emerald-500 text-white px-4 py-1.5 rounded-xl text-xs font-bold">打卡 +15g</button>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between opacity-60">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-500">
+<iconify-icon class="text-xl" icon="ph:bus-bold"></iconify-icon>
+</div>
+<div class="ml-3">
+<h3 class="text-sm font-bold text-gray-800">校园巴士出行</h3>
+<p class="text-[10px] text-gray-400">今日已自动同步 2 次</p>
+</div>
+</div>
+<div class="text-emerald-600">
+<iconify-icon class="text-2xl" icon="ph:check-circle-fill"></iconify-icon>
+</div>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center text-purple-500">
+<iconify-icon class="text-xl" icon="ph:package-bold"></iconify-icon>
+</div>
+<div class="ml-3">
+<h3 class="text-sm font-bold text-gray-800">旧物循环捐赠</h3>
+<p class="text-[10px] text-gray-400">预约校园菜鸟驿站回收</p>
+</div>
+</div>
+<button class="bg-gray-100 text-gray-400 px-4 py-1.5 rounded-xl text-xs font-bold">去完成</button>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center text-yellow-500">
+<iconify-icon class="text-xl" icon="ph:drop-bold"></iconify-icon>
+</div>
+<div class="ml-3">
+<h3 class="text-sm font-bold text-gray-800">光盘行动打卡</h3>
+<p class="text-[10px] text-gray-400">食堂餐后拍照上传</p>
+</div>
+</div>
+<button class="bg-emerald-500 text-white px-4 py-1.5 rounded-xl text-xs font-bold">拍照 +10g</button>
+</div>
+</div>
+<!-- 周报总结入口 -->
+<div class="mt-8 bg-blue-600 rounded-3xl p-5 flex items-center justify-between text-white shadow-lg shadow-blue-100">
+<div>
+<h4 class="font-bold text-sm">您的低碳周报已生成</h4>
+<p class="text-[10px] opacity-80 mt-1">上周共减排 2.4kg 碳，相当于种下 0.2 棵树</p>
+</div>
+<iconify-icon class="text-3xl" icon="ph:arrow-right-circle-bold"></iconify-icon>
+</div>
+</div>
+<!-- 底部 TabBar -->
+<div class="absolute bottom-0 w-full h-20 bg-white border-t border-gray-100 px-6 flex justify-between items-center pb-4">
+<a class="flex flex-col items-center text-gray-400" href="index.html">
+<iconify-icon class="text-2xl" icon="ph:house-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">首页</span>
+</a>
+<a class="flex flex-col items-center tab-active" href="checkin.html">
+<iconify-icon class="text-2xl" icon="ph:calendar-check-fill"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">打卡</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="social.html">
+<iconify-icon class="text-2xl" icon="ph:users-three-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">动态</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="mall.html">
+<iconify-icon class="text-2xl" icon="ph:shopping-bag-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">商城</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="profile.html">
+<iconify-icon class="text-2xl" icon="ph:user-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">我的</span>
+</a>
+</div>
+</div>
+</body>
+</html>

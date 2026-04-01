@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日打卡 - 碳路者·青碳行</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body data-page="checkin">
+    <div class="phone-container">
+        <!-- 顶部状态栏 -->
+        <div class="bg-emerald-600 px-4 py-3 flex items-center justify-between text-white">
+            <div class="flex items-center gap-2">
+                <span class="text-sm font-medium">2026年3月29日</span>
+                <span class="text-xs opacity-80">晴</span>
+            </div>
+            <div class="flex items-center gap-1">
+                <i class="ph-bold ph-cell-signal-full text-sm"></i>
+                <i class="ph-bold ph-wifi-high text-sm"></i>
+                <i class="ph-bold ph-battery-full text-sm"></i>
+            </div>
+        </div>
+
+        <!-- 可滚动内容区 -->
+        <div class="scrollable-content">
+            <!-- 打卡页面头部 -->
+            <div class="bg-gradient-to-br from-emerald-500 to-teal-600 px-4 pt-4 pb-6">
+                <div class="flex items-center justify-between mb-4">
+                    <a href="index.html" class="text-white">
+                        <i class="ph-bold ph-arrow-left text-xl"></i>
+                    </a>
+                    <span class="text-white font-semibold">每日打卡</span>
+                    <div class="w-6"></div>
+                </div>
+                <div class="text-center">
+                    <div class="text-white/60 text-sm mb-2">今日碳足迹</div>
+                    <div class="text-5xl font-bold text-white today-score">65<span class="text-xl ml-1">g</span></div>
+                    <div class="text-emerald-100 text-sm mt-2">已减少 1.28 kg CO₂</div>
+                </div>
+                <div class="mt-6 bg-white/20 rounded-2xl p-4">
+                    <div class="flex items-center justify-between text-white">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold"><span class="checkin-count">1</span>/4</div>
+                            <div class="text-xs opacity-80 mt-1">打卡任务</div>
+                        </div>
+                        <div class="w-px h-10 bg-white/30"></div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold today-score">65</div>
+                            <div class="text-xs opacity-80 mt-1">今日积分</div>
+                        </div>
+                        <div class="w-px h-10 bg-white/30"></div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold carbon-score">1,286</div>
+                            <div class="text-xs opacity-80 mt-1">总积分</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 打卡任务列表 -->
+            <div class="px-4 -mt-4">
+                <div class="bg-white rounded-2xl p-4 shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-gray-700 font-semibold text-base">今日任务</span>
+                        <span class="checkin-progress text-gray-400 text-sm">(0/4)</span>
+                    </div>
+                    <div class="space-y-4">
+                        <!-- 任务1 -->
+                        <div class="task-item flex items-start gap-3 p-3 bg-orange-50 rounded-xl">
+                            <div class="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-bold ph-bowl-food text-orange-500 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-gray-800 font-medium text-sm">减免一次外卖餐具</div>
+                                <div class="text-gray-400 text-xs mt-0.5">上传订单截图即可获得</div>
+                            </div>
+                            <button class="checkin-btn bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium" data-task-id="1">
+                                打卡 +15g
+                            </button>
+                        </div>
+
+                        <!-- 任务2 - 已完成 -->
+                        <div class="task-item flex items-start gap-3 p-3 bg-blue-50 rounded-xl opacity-60">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-bold ph-bus text-blue-500 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-gray-800 font-medium text-sm">校园巴士出行</div>
+                                <div class="text-gray-400 text-xs mt-0.5">今日已自动同步 2 次</div>
+                            </div>
+                            <button class="bg-gray-100 text-gray-400 px-3 py-1.5 rounded-lg text-xs completed" disabled>
+                                已完成 ✓
+                            </button>
+                        </div>
+
+                        <!-- 任务3 -->
+                        <div class="task-item flex items-start gap-3 p-3 bg-purple-50 rounded-xl">
+                            <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-bold ph-package text-purple-500 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-gray-800 font-medium text-sm">旧物循环捐赠</div>
+                                <div class="text-gray-400 text-xs mt-0.5">预约校园菜鸟驿站回收</div>
+                            </div>
+                            <button class="checkin-btn bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium" data-task-id="3">
+                                去完成
+                            </button>
+                        </div>
+
+                        <!-- 任务4 -->
+                        <div class="task-item flex items-start gap-3 p-3 bg-yellow-50 rounded-xl">
+                            <div class="w-10 h-10 rounded-xl bg-yellow-100 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-bold ph-drop text-yellow-500 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-gray-800 font-medium text-sm">光盘行动打卡</div>
+                                <div class="text-gray-400 text-xs mt-0.5">食堂餐后拍照上传</div>
+                            </div>
+                            <button class="checkin-btn bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium" data-task-id="4">
+                                拍照 +10g
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 周报入口 -->
+            <div class="px-4 mt-4 pb-4">
+                <div class="weekly-report-card bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-4 cursor-pointer">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-lightbulb text-emerald-600"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="text-gray-700 font-medium text-sm mb-1">本周减碳周报</div>
+                            <div class="text-gray-500 text-xs leading-relaxed">
+                                累计减碳 2.4kg，相当于种植 0.2 棵树。点击查看详情 →
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="bg-white border-t border-gray-100 px-4 py-2 flex items-center justify-around">
+            <a href="index.html" class="flex flex-col items-center py-1 text-gray-400">
+                <i class="ph-bold ph-house text-xl"></i>
+                <span class="text-xs mt-0.5">首页</span>
+            </a>
+            <a href="checkin.html" class="flex flex-col items-center py-1 tab-active">
+                <i class="ph-bold ph-check-square text-xl"></i>
+                <span class="text-xs mt-0.5">打卡</span>
+            </a>
+            <a href="social.html" class="flex flex-col items-center py-1 text-gray-400">
+                <i class="ph-bold ph-users text-xl"></i>
+                <span class="text-xs mt-0.5">动态</span>
+            </a>
+            <a href="mall.html" class="flex flex-col items-center py-1 text-gray-400 relative">
+                <i class="ph-bold ph-storefront text-xl"></i>
+                <span class="text-xs mt-0.5">商城</span>
+                <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center py-1 text-gray-400">
+                <i class="ph-bold ph-user-circle text-xl"></i>
+                <span class="text-xs mt-0.5">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="js/mock-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

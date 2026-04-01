@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>碳路者·青碳行 - 个人中心</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/echarts.min.5.4.3.js"></script>
+</head>
+<body class="bg-slate-50 flex justify-center items-center min-h-screen">
+<div class="w-[375px] h-[812px] bg-white rounded-[40px] shadow-2xl overflow-hidden relative border-[8px] border-slate-900">
+<!-- 顶部个人信息 -->
+<div class="bg-gradient-to-br from-emerald-500 to-teal-600 px-6 pt-16 pb-12 text-white relative">
+<div class="flex items-center">
+<img alt="Avatar" class="w-16 h-16 rounded-3xl border-2 border-white/50 p-1" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/dcd31a5496fe4151ba6851123f2f3cfa.jpg"/>
+<div class="ml-4">
+<div class="flex items-center space-x-2">
+<h2 class="text-lg font-bold">李华</h2>
+<span class="text-[10px] bg-white/20 px-2 py-0.5 rounded-full border border-white/30">Lv.4 低碳先锋</span>
+</div>
+<p class="text-xs text-emerald-100 mt-1">同济大学 · 环境工程学院</p>
+</div>
+</div>
+<iconify-icon class="absolute top-12 right-6 text-2xl opacity-80" icon="ph:gear-bold"></iconify-icon>
+</div>
+<div class="h-[550px] overflow-y-auto pb-24 -mt-8 bg-white rounded-t-[40px] shadow-inner px-6 pt-8">
+<!-- 核心数据卡片 -->
+<div class="grid grid-cols-3 gap-2 mb-8">
+<div class="bg-emerald-50 rounded-2xl p-3 flex flex-col items-center text-center">
+<span class="text-[10px] text-emerald-700 opacity-70 mb-1">总减排</span>
+<span class="text-sm font-black text-emerald-800 tracking-tight">24.5<small class="font-normal">kg</small></span>
+</div>
+<div class="bg-blue-50 rounded-2xl p-3 flex flex-col items-center text-center">
+<span class="text-[10px] text-blue-700 opacity-70 mb-1">已种树</span>
+<span class="text-sm font-black text-blue-800 tracking-tight">3<small class="font-normal">棵</small></span>
+</div>
+<div class="bg-purple-50 rounded-2xl p-3 flex flex-col items-center text-center">
+<span class="text-[10px] text-purple-700 opacity-70 mb-1">减排成就</span>
+<span class="text-sm font-black text-purple-800 tracking-tight">12<small class="font-normal">枚</small></span>
+</div>
+</div>
+<!-- 数据图表区 -->
+<div class="mb-8">
+<h3 class="text-sm font-bold text-gray-800 mb-4 flex items-center">
+<iconify-icon class="mr-2 text-emerald-500" icon="ph:chart-line-up-bold"></iconify-icon>
+                    减排趋势 (过去7天)
+                </h3>
+<div class="w-full h-40" id="chart"></div>
+</div>
+<!-- 勋章墙预览 -->
+<div class="mb-8">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-sm font-bold text-gray-800">成就勋章</h3>
+<span class="text-[10px] text-emerald-600">全部勋章 &gt;</span>
+</div>
+<div class="flex justify-between px-2">
+<div class="flex flex-col items-center space-y-1">
+<iconify-icon class="text-3xl text-emerald-500 bg-emerald-50 p-2 rounded-2xl" icon="ph:sneaker-move-fill"></iconify-icon>
+<span class="text-[9px] text-gray-500">暴走达人</span>
+</div>
+<div class="flex flex-col items-center space-y-1">
+<iconify-icon class="text-3xl text-gray-300 bg-gray-50 p-2 rounded-2xl" icon="ph:bicycle-fill"></iconify-icon>
+<span class="text-[9px] text-gray-400">骑行专家</span>
+</div>
+<div class="flex flex-col items-center space-y-1">
+<iconify-icon class="text-3xl text-emerald-500 bg-emerald-50 p-2 rounded-2xl" icon="ph:plant-fill"></iconify-icon>
+<span class="text-[9px] text-gray-500">环保萌芽</span>
+</div>
+<div class="flex flex-col items-center space-y-1">
+<iconify-icon class="text-3xl text-emerald-500 bg-emerald-50 p-2 rounded-2xl" icon="ph:sun-dim-fill"></iconify-icon>
+<span class="text-[9px] text-gray-500">早起减碳</span>
+</div>
+</div>
+</div>
+<!-- 功能菜单 -->
+<div class="space-y-1">
+<div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
+<div class="flex items-center">
+<iconify-icon class="text-xl text-gray-400 mr-3" icon="ph:watch-bold"></iconify-icon>
+<span class="text-sm text-gray-700">设备绑定与同步</span>
+</div>
+<div class="flex items-center">
+<span class="text-[10px] text-emerald-500 mr-2">Apple Watch 已连接</span>
+<iconify-icon class="text-gray-300" icon="ph:caret-right-bold"></iconify-icon>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
+<div class="flex items-center">
+<iconify-icon class="text-xl text-gray-400 mr-3" icon="ph:clock-counter-clockwise-bold"></iconify-icon>
+<span class="text-sm text-gray-700">碳足迹历史</span>
+</div>
+<iconify-icon class="text-gray-300" icon="ph:caret-right-bold"></iconify-icon>
+</div>
+<div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
+<div class="flex items-center">
+<iconify-icon class="text-xl text-gray-400 mr-3" icon="ph:shield-check-bold"></iconify-icon>
+<span class="text-sm text-gray-700">校园实名认证</span>
+</div>
+<span class="text-[10px] text-emerald-500">已认证</span>
+</div>
+</div>
+</div>
+<!-- 底部 TabBar -->
+<div class="absolute bottom-0 w-full h-20 bg-white border-t border-gray-100 px-6 flex justify-between items-center pb-4">
+<a class="flex flex-col items-center text-gray-400" href="index.html">
+<iconify-icon class="text-2xl" icon="ph:house-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">首页</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="checkin.html">
+<iconify-icon class="text-2xl" icon="ph:calendar-check-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">打卡</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="social.html">
+<iconify-icon class="text-2xl" icon="ph:users-three-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">动态</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="mall.html">
+<iconify-icon class="text-2xl" icon="ph:shopping-bag-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">商城</span>
+</a>
+<a class="flex flex-col items-center tab-active" href="profile.html">
+<iconify-icon class="text-2xl" icon="ph:user-fill"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">我的</span>
+</a>
+</div>
+</div>
+<script>
+        var chartDom = document.getElementById('chart');
+        var myChart = echarts.init(chartDom);
+        var option = {
+            grid: { top: 10, bottom: 20, left: 30, right: 10 },
+            xAxis: {
+                type: 'category',
+                data: ['3.23', '3.24', '3.25', '3.26', '3.27', '3.28', '3.29'],
+                axisLine: { show: false },
+                axisTick: { show: false },
+                axisLabel: { color: '#94a3b8', fontSize: 10 }
+            },
+            yAxis: {
+                type: 'value',
+                splitLine: { lineStyle: { type: 'dashed', color: '#f1f5f9' } },
+                axisLabel: { color: '#94a3b8', fontSize: 10 }
+            },
+            series: [{
+                data: [120, 150, 80, 200, 160, 240, 180],
+                type: 'line',
+                smooth: true,
+                symbol: 'none',
+                lineStyle: { color: '#10b981', width: 3 },
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: 'rgba(16, 185, 129, 0.2)' },
+                        { offset: 1, color: 'rgba(16, 185, 129, 0)' }
+                    ])
+                }
+            }]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

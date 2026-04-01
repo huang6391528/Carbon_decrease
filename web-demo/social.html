@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园动态 - 碳路者·青碳行</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body data-page="social">
+    <div class="phone-container">
+        <!-- 顶部状态栏 -->
+        <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
+            <div class="text-gray-400 text-sm">2026年3月29日</div>
+            <div class="flex items-center gap-1">
+                <i class="ph-bold ph-cell-signal-full text-sm text-gray-600"></i>
+                <i class="ph-bold ph-wifi-high text-sm text-gray-600"></i>
+                <i class="ph-bold ph-battery-full text-sm text-gray-600"></i>
+            </div>
+        </div>
+
+        <!-- 可滚动内容区 -->
+        <div class="scrollable-content">
+            <!-- 页面头部 -->
+            <div class="bg-white px-4 pt-4 pb-2">
+                <div class="text-center text-gray-800 font-bold text-lg mb-4">校园动态</div>
+                <!-- Tab 切换 -->
+                <div class="flex items-center justify-center gap-8 border-b border-gray-100 pb-2">
+                    <div class="rank-tab active cursor-pointer text-emerald-600 font-medium text-sm relative" data-tab="rank">
+                        排行榜
+                        <div class="tab-underline absolute bottom-0 left-0 w-full h-0.5 bg-emerald-500 rounded"></div>
+                    </div>
+                    <div class="rank-tab cursor-pointer text-gray-400 text-sm relative" data-tab="feed">
+                        动态墙
+                        <div class="tab-underline absolute bottom-0 left-0 w-full h-0.5 bg-emerald-500 rounded hidden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 排行榜内容 -->
+            <div id="rank-content" class="px-4 pt-4">
+                <!-- 用户排名卡片 -->
+                <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 mb-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-emerald-100 text-xs">我的排名</span>
+                        <span class="text-white/60 text-xs">实时更新</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center overflow-hidden">
+                            <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/dcd31a5496fe4151ba6851123f2f3cfa.jpg" alt="头像" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="text-white font-semibold">小碳</div>
+                            <div class="text-emerald-100 text-xs">第 12 名 · <span class="carbon-score">1,286</span> 碳积分</div>
+                            <div class="text-emerald-200 text-xs mt-1">今日累计打卡 4 次</div>
+                        </div>
+                        <div class="bg-white/20 rounded-full px-3 py-1">
+                            <span class="text-white text-sm font-medium">TOP 15%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top 3 排名 -->
+                <div class="flex items-end justify-center gap-3 mb-4">
+                    <!-- 第2名 -->
+                    <div class="flex-1 text-center">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-gray-200 overflow-hidden mb-2 border-2 border-gray-300">
+                            <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/aebe9ded8268497fb80cf50f97790d42.jpg" alt="头像" class="w-full h-full object-cover">
+                        </div>
+                        <div class="text-gray-800 font-medium text-sm">林悦</div>
+                        <div class="text-xs text-gray-500">2,482</div>
+                        <div class="mt-1 bg-gray-100 rounded-full px-2 py-0.5">
+                            <span class="text-xs text-gray-600">🥈</span>
+                        </div>
+                    </div>
+                    <!-- 第1名 -->
+                    <div class="flex-1 text-center">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-yellow-100 overflow-hidden mb-2 border-2 border-yellow-400">
+                            <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/aebe9ded8268497fb80cf50f97790d42.jpg" alt="头像" class="w-full h-full object-cover">
+                        </div>
+                        <div class="text-gray-800 font-bold text-sm">陈向东</div>
+                        <div class="text-xs text-gray-500">3,120</div>
+                        <div class="mt-1 bg-yellow-100 rounded-full px-2 py-0.5">
+                            <span class="text-xs">🏆</span>
+                        </div>
+                    </div>
+                    <!-- 第3名 -->
+                    <div class="flex-1 text-center">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-orange-100 overflow-hidden mb-2 border-2 border-orange-300">
+                            <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/aebe9ded8268497fb80cf50f97790d42.jpg" alt="头像" class="w-full h-full object-cover">
+                        </div>
+                        <div class="text-gray-800 font-medium text-sm">张子萱</div>
+                        <div class="text-xs text-gray-500">1,965</div>
+                        <div class="mt-1 bg-orange-100 rounded-full px-2 py-0.5">
+                            <span class="text-xs text-gray-600">🥉</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 排行榜列表 -->
+                <div class="bg-white rounded-2xl p-4 shadow-sm">
+                    <div class="space-y-3">
+                        <!-- 列表项 -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 text-center text-gray-400 text-sm">4</div>
+                            <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+                                <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/aebe9ded8268497fb80cf50f97790d42.jpg" alt="头像" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-gray-800 font-medium text-sm">李浩</div>
+                                <div class="text-gray-400 text-xs">步行 1.2w 步</div>
+                            </div>
+                            <div class="text-emerald-600 font-semibold text-sm">1,842</div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 text-center text-gray-400 text-sm">5</div>
+                            <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+                                <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/aebe9ded8268497fb80cf50f97790d42.jpg" alt="头像" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-gray-800 font-medium text-sm">王语嫣</div>
+                                <div class="text-gray-400 text-xs">公交出行 4 次</div>
+                            </div>
+                            <div class="text-emerald-600 font-semibold text-sm">1,650</div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 text-center text-gray-400 text-sm">6</div>
+                            <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+                                <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/aebe9ded8268497fb80cf50f97790d42.jpg" alt="头像" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-gray-800 font-medium text-sm">赵明</div>
+                                <div class="text-gray-400 text-xs">旧物捐赠达人</div>
+                            </div>
+                            <div class="text-emerald-600 font-semibold text-sm">1,420</div>
+                        </div>
+                        <!-- 我的排名 -->
+                        <div class="flex items-center gap-3 bg-emerald-50 rounded-xl p-2 -mx-2">
+                            <div class="w-6 text-center text-emerald-600 font-bold text-sm">12</div>
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 overflow-hidden border-2 border-emerald-400">
+                                <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/dcd31a5496fe4151ba6851123f2f3cfa.jpg" alt="头像" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-gray-800 font-semibold text-sm">我 (小碳)</div>
+                                <div class="text-emerald-600 text-xs">今日累计打卡 4 次</div>
+                            </div>
+                            <div class="text-emerald-600 font-bold text-sm carbon-score">1,286</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 动态墙内容 (隐藏) -->
+            <div id="feed-content" class="px-4 pt-4 hidden">
+                <div class="space-y-4">
+                    <div class="bg-white rounded-2xl p-4 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+                                <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/aebe9ded8268497fb80cf50f97790d42.jpg" alt="头像" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-gray-800 font-medium text-sm">陈向东</div>
+                                <div class="text-gray-400 text-xs">3分钟前</div>
+                            </div>
+                        </div>
+                        <div class="text-gray-700 text-sm mb-3">
+                            今日步行超过 10,000 步，为地球减少了 <span class="text-emerald-600 font-semibold">120g</span> 碳排放！
+                        </div>
+                        <div class="bg-emerald-50 rounded-xl p-3 flex items-center gap-2">
+                            <i class="ph-bold ph-plant text-emerald-600"></i>
+                            <span class="text-emerald-700 text-xs">相当于种植了 0.01 棵树</span>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+                                <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/aebe9ded8268497fb80cf50f97790d42.jpg" alt="头像" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-gray-800 font-medium text-sm">林悦</div>
+                                <div class="text-gray-400 text-xs">10分钟前</div>
+                            </div>
+                        </div>
+                        <div class="text-gray-700 text-sm mb-3">
+                            完成了今日的光盘行动打卡，食堂的饭菜真的很好吃！
+                        </div>
+                        <div class="flex gap-2">
+                            <div class="bg-gray-100 rounded-lg overflow-hidden">
+                                <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg" alt="图片" class="w-24 h-24 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="bg-white border-t border-gray-100 px-4 py-2 flex items-center justify-around">
+            <a href="index.html" class="flex flex-col items-center py-1 text-gray-400">
+                <i class="ph-bold ph-house text-xl"></i>
+                <span class="text-xs mt-0.5">首页</span>
+            </a>
+            <a href="checkin.html" class="flex flex-col items-center py-1 text-gray-400">
+                <i class="ph-bold ph-check-square text-xl"></i>
+                <span class="text-xs mt-0.5">打卡</span>
+            </a>
+            <a href="social.html" class="flex flex-col items-center py-1 tab-active">
+                <i class="ph-bold ph-users text-xl"></i>
+                <span class="text-xs mt-0.5">动态</span>
+            </a>
+            <a href="mall.html" class="flex flex-col items-center py-1 text-gray-400 relative">
+                <i class="ph-bold ph-storefront text-xl"></i>
+                <span class="text-xs mt-0.5">商城</span>
+                <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center py-1 text-gray-400">
+                <i class="ph-bold ph-user-circle text-xl"></i>
+                <span class="text-xs mt-0.5">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="js/mock-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

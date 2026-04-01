@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>碳路者·青碳行 - 首页</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+<style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .energy-ball {
+            animation: float 3s ease-in-out infinite;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        .tab-active { color: #10B981; }
+    </style>
+</head>
+<body class="bg-slate-50 flex justify-center items-center min-h-screen">
+<div class="w-[375px] h-[812px] bg-white rounded-[40px] shadow-2xl overflow-hidden relative border-[8px] border-slate-900">
+<!-- 顶部导航 -->
+<div class="px-6 pt-12 pb-4 flex justify-between items-center bg-emerald-500 text-white">
+<div>
+<h1 class="text-xl font-bold">青碳行</h1>
+<p class="text-xs opacity-80">2026年3月29日 · 晴</p>
+</div>
+<div class="flex space-x-3">
+<iconify-icon class="text-2xl" icon="ph:bell-bold"></iconify-icon>
+<iconify-icon class="text-2xl" icon="ph:qr-code-bold"></iconify-icon>
+</div>
+</div>
+<!-- 可滚动内容区 -->
+<div class="h-[640px] overflow-y-auto pb-24">
+<!-- 轮播图区 -->
+<div class="px-4 mt-4">
+<div class="relative h-32 rounded-2xl overflow-hidden shadow-lg">
+<img alt="Campus Carbon Activity" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/f5ad22e148574496982b1dea4764e0e5.jpg"/>
+<div class="absolute bottom-2 left-3 bg-black/40 px-2 py-1 rounded text-[10px] text-white">
+                        校园植树节：领养属于你的数字小树
+                    </div>
+</div>
+</div>
+<!-- 蚂蚁森林互动区 -->
+<div class="mx-4 mt-4 h-64 bg-gradient-to-b from-emerald-100 to-white rounded-3xl relative overflow-hidden border border-emerald-50">
+<div class="absolute top-4 left-4">
+<div class="text-xs text-emerald-700 font-medium">当前累计碳积分</div>
+<div class="text-2xl font-bold text-emerald-900">1,286 <span class="text-sm font-normal">g</span></div>
+</div>
+<!-- 能量球 -->
+<div class="energy-ball absolute top-12 left-20 bg-emerald-400/80 w-12 h-12 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-emerald-200" onclick="this.style.display='none'">
+<span>+12g</span>
+<span>步行</span>
+</div>
+<div class="energy-ball absolute top-24 right-12 bg-lime-400/80 w-14 h-14 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-lime-200" onclick="this.style.display='none'" style="animation-delay: 0.5s">
+<span>+45g</span>
+<span>地铁</span>
+</div>
+<div class="energy-ball absolute bottom-20 left-10 bg-teal-400/80 w-10 h-10 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-teal-200" onclick="this.style.display='none'" style="animation-delay: 1.2s">
+<span>+8g</span>
+<span>回收</span>
+</div>
+<!-- 底部装饰 -->
+<div class="absolute bottom-0 w-full h-24 flex items-end justify-center">
+<iconify-icon class="text-6xl text-emerald-600 mb-2" icon="ph:tree-evergreen-fill"></iconify-icon>
+<iconify-icon class="text-4xl text-emerald-500 mb-2 -ml-2" icon="ph:tree-evergreen-fill"></iconify-icon>
+<iconify-icon class="text-5xl text-emerald-400 mb-2 -ml-4" icon="ph:tree-evergreen-fill"></iconify-icon>
+</div>
+</div>
+<!-- 快捷功能 -->
+<div class="grid grid-cols-4 gap-4 px-6 mt-6">
+<div class="flex flex-col items-center space-y-1">
+<div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600">
+<iconify-icon class="text-2xl" icon="ph:bicycle-bold"></iconify-icon>
+</div>
+<span class="text-[11px] text-gray-600">绿色骑行</span>
+</div>
+<div class="flex flex-col items-center space-y-1">
+<div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600">
+<iconify-icon class="text-2xl" icon="ph:recycle-bold"></iconify-icon>
+</div>
+<span class="text-[11px] text-gray-600">垃圾分类</span>
+</div>
+<div class="flex flex-col items-center space-y-1">
+<div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600">
+<iconify-icon class="text-2xl" icon="ph:book-open-user-bold"></iconify-icon>
+</div>
+<span class="text-[11px] text-gray-600">低碳科普</span>
+</div>
+<div class="flex flex-col items-center space-y-1">
+<div class="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center text-red-600">
+<iconify-icon class="text-2xl" icon="ph:hand-heart-bold"></iconify-icon>
+</div>
+<span class="text-[11px] text-gray-600">公益捐赠</span>
+</div>
+</div>
+<!-- 低碳科普板块 -->
+<div class="px-4 mt-8">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-base font-bold text-gray-800">低碳实验室</h2>
+<span class="text-xs text-gray-400">查看更多 &gt;</span>
+</div>
+<div class="space-y-4">
+<div class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm">
+<img alt="Article" class="w-20 h-20 rounded-xl object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg"/>
+<div class="ml-3 flex flex-col justify-between">
+<h3 class="text-sm font-bold text-gray-800 line-clamp-2">为什么少喝一瓶瓶装水能减少 80g 碳排放？</h3>
+<div class="flex items-center text-[10px] text-gray-400">
+<iconify-icon class="mr-1" icon="ph:eye-bold"></iconify-icon>
+<span>1.2k 阅读</span>
+<span class="mx-2">|</span>
+<span>科普 · 环境</span>
+</div>
+</div>
+</div>
+<div class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm">
+<img alt="Article" class="w-20 h-20 rounded-xl object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg"/>
+<div class="ml-3 flex flex-col justify-between">
+<h3 class="text-sm font-bold text-gray-800 line-clamp-2">宿舍节能挑战：每月省电 20% 的实操指南</h3>
+<div class="flex items-center text-[10px] text-gray-400">
+<iconify-icon class="mr-1" icon="ph:eye-bold"></iconify-icon>
+<span>856 阅读</span>
+<span class="mx-2">|</span>
+<span>生活 · 节能</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 底部 TabBar -->
+<div class="absolute bottom-0 w-full h-20 bg-white border-t border-gray-100 px-6 flex justify-between items-center pb-4">
+<a class="flex flex-col items-center tab-active" href="index.html">
+<iconify-icon class="text-2xl" icon="ph:house-fill"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">首页</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="checkin.html">
+<iconify-icon class="text-2xl" icon="ph:calendar-check-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">打卡</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="social.html">
+<iconify-icon class="text-2xl" icon="ph:users-three-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">动态</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="mall.html">
+<iconify-icon class="text-2xl" icon="ph:shopping-bag-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">商城</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="profile.html">
+<iconify-icon class="text-2xl" icon="ph:user-bold"></iconify-icon>
+<span class="text-[10px] mt-1 font-medium">我的</span>
+</a>
+</div>
+</div>
+</body>
+</html>
