@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>每日打卡 - 碳路者·青碳行</title>
+    <title>碳路者·青碳行 - 低碳打卡</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,165 +17,144 @@
         }
     </script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .progress-circle {
+            transform: rotate(-90deg);
+        }
+        .tab-active { color: #10B981; }
+    </style>
 </head>
 <body data-page="checkin">
     <div class="phone-container">
-        <!-- 顶部状态栏 -->
-        <div class="bg-emerald-600 px-4 py-3 flex items-center justify-between text-white">
-            <div class="flex items-center gap-2">
-                <span class="text-sm font-medium">2026年3月29日</span>
-                <span class="text-xs opacity-80">晴</span>
-            </div>
-            <div class="flex items-center gap-1">
-                <i class="ph-bold ph-cell-signal-full text-sm"></i>
-                <i class="ph-bold ph-wifi-high text-sm"></i>
-                <i class="ph-bold ph-battery-full text-sm"></i>
+        <!-- 顶部 (原型样式) -->
+        <div class="px-6 pt-12 pb-6 flex justify-between items-center bg-white">
+            <h1 class="text-xl font-bold text-gray-800">低碳打卡</h1>
+            <div class="flex bg-emerald-50 px-3 py-1 rounded-full items-center">
+                <i class="ph-bold ph-coin-vertical text-emerald-500 mr-1"></i>
+                <span class="text-xs font-bold text-emerald-700 carbon-score">1,286</span>
             </div>
         </div>
 
         <!-- 可滚动内容区 -->
-        <div class="scrollable-content">
-            <!-- 打卡页面头部 -->
-            <div class="bg-gradient-to-br from-emerald-500 to-teal-600 px-4 pt-4 pb-6">
-                <div class="flex items-center justify-between mb-4">
-                    <a href="index.html" class="text-white">
-                        <i class="ph-bold ph-arrow-left text-xl"></i>
-                    </a>
-                    <span class="text-white font-semibold">每日打卡</span>
-                    <div class="w-6"></div>
-                </div>
-                <div class="text-center">
-                    <div class="text-white/60 text-sm mb-2">今日碳足迹</div>
-                    <div class="text-5xl font-bold text-white today-score">65<span class="text-xl ml-1">g</span></div>
-                    <div class="text-emerald-100 text-sm mt-2">已减少 1.28 kg CO₂</div>
-                </div>
-                <div class="mt-6 bg-white/20 rounded-2xl p-4">
-                    <div class="flex items-center justify-between text-white">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold"><span class="checkin-count">1</span>/4</div>
-                            <div class="text-xs opacity-80 mt-1">打卡任务</div>
-                        </div>
-                        <div class="w-px h-10 bg-white/30"></div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold today-score">65</div>
-                            <div class="text-xs opacity-80 mt-1">今日积分</div>
-                        </div>
-                        <div class="w-px h-10 bg-white/30"></div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold carbon-score">1,286</div>
-                            <div class="text-xs opacity-80 mt-1">总积分</div>
+        <div class="h-[640px] overflow-y-auto pb-24 px-4">
+            <!-- 步数统计卡片 -->
+            <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden mb-6">
+                <div class="relative z-10 flex justify-between">
+                    <div>
+                        <div class="text-emerald-100 text-xs mb-1">今日步数</div>
+                        <div class="text-4xl font-black">8,642</div>
+                        <div class="text-[10px] mt-4 flex items-center bg-white/20 w-fit px-2 py-1 rounded-full">
+                            <i class="ph-bold ph-info mr-1"></i>
+                            预计可收碳能量 32g
                         </div>
                     </div>
+                    <!-- 圆形进度 -->
+                    <div class="w-24 h-24 relative flex items-center justify-center">
+                        <svg class="w-24 h-24 progress-circle">
+                            <circle cx="48" cy="48" fill="transparent" r="40" stroke="rgba(255,255,255,0.2)" stroke-width="8"></circle>
+                            <circle cx="48" cy="48" fill="transparent" r="40" stroke="white" stroke-dasharray="251" stroke-dashoffset="60" stroke-linecap="round" stroke-width="8"></circle>
+                        </svg>
+                        <span class="absolute text-xs font-bold">86%</span>
+                    </div>
+                </div>
+                <!-- 装饰背景 -->
+                <i class="ph-bold ph-sneaker-move absolute -bottom-4 -right-4 text-8xl text-white/10 rotate-12"></i>
+            </div>
+
+            <!-- 任务列表 -->
+            <h2 class="text-sm font-bold text-gray-800 mb-4 px-1">日常任务 (4/8)</h2>
+            <div class="space-y-3">
+                <!-- 任务1 -->
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between group">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500">
+                            <i class="ph-bold ph-bowl-food text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-bold text-gray-800">减免一次外卖餐具</h3>
+                            <p class="text-[10px] text-gray-400">上传订单截图即可获得</p>
+                        </div>
+                    </div>
+                    <button class="bg-emerald-500 text-white px-4 py-1.5 rounded-xl text-xs font-bold cursor-pointer hover:bg-emerald-600 transition-colors">打卡 +15g</button>
+                </div>
+
+                <!-- 任务2 - 已完成 -->
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between opacity-60">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-500">
+                            <i class="ph-bold ph-bus text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-bold text-gray-800">校园巴士出行</h3>
+                            <p class="text-[10px] text-gray-400">今日已自动同步 2 次</p>
+                        </div>
+                    </div>
+                    <div class="text-emerald-600">
+                        <i class="ph-bold ph-check-circle text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- 任务3 -->
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center text-purple-500">
+                            <i class="ph-bold ph-package text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-bold text-gray-800">旧物循环捐赠</h3>
+                            <p class="text-[10px] text-gray-400">预约校园菜鸟驿站回收</p>
+                        </div>
+                    </div>
+                    <button class="bg-gray-100 text-gray-400 px-4 py-1.5 rounded-xl text-xs font-bold cursor-pointer">去完成</button>
+                </div>
+
+                <!-- 任务4 -->
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center text-yellow-500">
+                            <i class="ph-bold ph-drop text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-bold text-gray-800">光盘行动打卡</h3>
+                            <p class="text-[10px] text-gray-400">食堂餐后拍照上传</p>
+                        </div>
+                    </div>
+                    <button class="bg-emerald-500 text-white px-4 py-1.5 rounded-xl text-xs font-bold cursor-pointer hover:bg-emerald-600 transition-colors">拍照 +10g</button>
                 </div>
             </div>
 
-            <!-- 打卡任务列表 -->
-            <div class="px-4 -mt-4">
-                <div class="bg-white rounded-2xl p-4 shadow-sm">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-gray-700 font-semibold text-base">今日任务</span>
-                        <span class="checkin-progress text-gray-400 text-sm">(0/4)</span>
-                    </div>
-                    <div class="space-y-4">
-                        <!-- 任务1 -->
-                        <div class="task-item flex items-start gap-3 p-3 bg-orange-50 rounded-xl">
-                            <div class="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-bowl-food text-orange-500 text-xl"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-gray-800 font-medium text-sm">减免一次外卖餐具</div>
-                                <div class="text-gray-400 text-xs mt-0.5">上传订单截图即可获得</div>
-                            </div>
-                            <button class="checkin-btn bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium" data-task-id="1">
-                                打卡 +15g
-                            </button>
-                        </div>
-
-                        <!-- 任务2 - 已完成 -->
-                        <div class="task-item flex items-start gap-3 p-3 bg-blue-50 rounded-xl opacity-60">
-                            <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-bus text-blue-500 text-xl"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-gray-800 font-medium text-sm">校园巴士出行</div>
-                                <div class="text-gray-400 text-xs mt-0.5">今日已自动同步 2 次</div>
-                            </div>
-                            <button class="bg-gray-100 text-gray-400 px-3 py-1.5 rounded-lg text-xs completed" disabled>
-                                已完成 ✓
-                            </button>
-                        </div>
-
-                        <!-- 任务3 -->
-                        <div class="task-item flex items-start gap-3 p-3 bg-purple-50 rounded-xl">
-                            <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-package text-purple-500 text-xl"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-gray-800 font-medium text-sm">旧物循环捐赠</div>
-                                <div class="text-gray-400 text-xs mt-0.5">预约校园菜鸟驿站回收</div>
-                            </div>
-                            <button class="checkin-btn bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium" data-task-id="3">
-                                去完成
-                            </button>
-                        </div>
-
-                        <!-- 任务4 -->
-                        <div class="task-item flex items-start gap-3 p-3 bg-yellow-50 rounded-xl">
-                            <div class="w-10 h-10 rounded-xl bg-yellow-100 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-drop text-yellow-500 text-xl"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-gray-800 font-medium text-sm">光盘行动打卡</div>
-                                <div class="text-gray-400 text-xs mt-0.5">食堂餐后拍照上传</div>
-                            </div>
-                            <button class="checkin-btn bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium" data-task-id="4">
-                                拍照 +10g
-                            </button>
-                        </div>
-                    </div>
+            <!-- 周报总结入口 -->
+            <div class="mt-8 bg-blue-600 rounded-3xl p-5 flex items-center justify-between text-white shadow-lg shadow-blue-100 cursor-pointer">
+                <div>
+                    <h4 class="font-bold text-sm">您的低碳周报已生成</h4>
+                    <p class="text-[10px] opacity-80 mt-1">上周共减排 2.4kg 碳，相当于种下 0.2 棵树</p>
                 </div>
-            </div>
-
-            <!-- 周报入口 -->
-            <div class="px-4 mt-4 pb-4">
-                <div class="weekly-report-card bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-4 cursor-pointer">
-                    <div class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                            <i class="ph-bold ph-lightbulb text-emerald-600"></i>
-                        </div>
-                        <div class="flex-1">
-                            <div class="text-gray-700 font-medium text-sm mb-1">本周减碳周报</div>
-                            <div class="text-gray-500 text-xs leading-relaxed">
-                                累计减碳 2.4kg，相当于种植 0.2 棵树。点击查看详情 →
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <i class="ph-bold ph-arrow-right-circle text-3xl"></i>
             </div>
         </div>
 
-        <!-- 底部导航 -->
-        <div class="bg-white border-t border-gray-100 px-4 py-2 flex items-center justify-around">
-            <a href="index.html" class="flex flex-col items-center py-1 text-gray-400">
-                <i class="ph-bold ph-house text-xl"></i>
-                <span class="text-xs mt-0.5">首页</span>
+        <!-- 底部 TabBar -->
+        <div class="absolute bottom-0 w-full h-20 bg-white border-t border-gray-100 px-6 flex justify-between items-center pb-4">
+            <a class="flex flex-col items-center text-gray-400" href="index.html">
+                <i class="ph-bold ph-house text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">首页</span>
             </a>
-            <a href="checkin.html" class="flex flex-col items-center py-1 tab-active">
-                <i class="ph-bold ph-check-square text-xl"></i>
-                <span class="text-xs mt-0.5">打卡</span>
+            <a class="flex flex-col items-center tab-active" href="checkin.html">
+                <i class="ph-bold ph-calendar-check text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">打卡</span>
             </a>
-            <a href="social.html" class="flex flex-col items-center py-1 text-gray-400">
-                <i class="ph-bold ph-users text-xl"></i>
-                <span class="text-xs mt-0.5">动态</span>
+            <a class="flex flex-col items-center text-gray-400" href="social.html">
+                <i class="ph-bold ph-users-three text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">动态</span>
             </a>
-            <a href="mall.html" class="flex flex-col items-center py-1 text-gray-400 relative">
-                <i class="ph-bold ph-storefront text-xl"></i>
-                <span class="text-xs mt-0.5">商城</span>
+            <a class="flex flex-col items-center text-gray-400 relative" href="mall.html">
+                <i class="ph-bold ph-shopping-bag text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">商城</span>
                 <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
             </a>
-            <a href="profile.html" class="flex flex-col items-center py-1 text-gray-400">
-                <i class="ph-bold ph-user-circle text-xl"></i>
-                <span class="text-xs mt-0.5">我的</span>
+            <a class="flex flex-col items-center text-gray-400" href="profile.html">
+                <i class="ph-bold ph-user text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">我的</span>
             </a>
         </div>
     </div>

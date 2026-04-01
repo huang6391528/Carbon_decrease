@@ -18,210 +18,161 @@
     </script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .energy-ball {
+            animation: float 3s ease-in-out infinite;
+        }
         body { background: #e2e8f0; }
+        .tab-active { color: #10B981; }
     </style>
 </head>
 <body data-page="index">
     <div class="phone-container">
-        <!-- 顶部状态栏 -->
-        <div class="bg-emerald-600 px-4 py-3 flex items-center justify-between text-white">
-            <div class="flex items-center gap-2">
-                <span class="text-sm font-medium">2026年3月29日</span>
-                <span class="text-xs opacity-80">晴</span>
+        <!-- 顶部导航 (原型样式) -->
+        <div class="px-6 pt-12 pb-4 flex justify-between items-center bg-emerald-500 text-white">
+            <div>
+                <h1 class="text-xl font-bold">青碳行</h1>
+                <p class="text-xs opacity-80">2026年3月29日 · 晴</p>
             </div>
-            <div class="flex items-center gap-1">
-                <i class="ph-bold ph-cell-signal-full text-sm"></i>
-                <i class="ph-bold ph-wifi-high text-sm"></i>
-                <i class="ph-bold ph-battery-full text-sm"></i>
+            <div class="flex space-x-3">
+                <i class="ph-bold ph-bell text-2xl cursor-pointer"></i>
+                <i class="ph-bold ph-qr-code text-2xl cursor-pointer"></i>
             </div>
         </div>
 
         <!-- 可滚动内容区 -->
-        <div class="scrollable-content">
-            <!-- 顶部碳积分卡片 -->
-            <div class="bg-gradient-to-br from-emerald-500 to-teal-600 px-4 pt-4 pb-6">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center overflow-hidden">
-                            <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/dcd31a5496fe4151ba6851123f2f3cfa.jpg" alt="头像" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <div class="text-white font-semibold text-base">小碳</div>
-                            <div class="text-emerald-100 text-xs">LV.4 低碳先锋</div>
-                        </div>
+        <div class="h-[640px] overflow-y-auto pb-24">
+            <!-- 轮播图区 -->
+            <div class="px-4 mt-4">
+                <div class="relative h-32 rounded-2xl overflow-hidden shadow-lg">
+                    <img alt="Campus Carbon Activity" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/f5ad22e148574496982b1dea4764e0e5.jpg"/>
+                    <div class="absolute bottom-2 left-3 bg-black/40 px-2 py-1 rounded text-[10px] text-white">
+                        校园植树节：领养属于你的数字小树
                     </div>
-                    <div class="flex items-center gap-2 bg-white/20 rounded-full px-3 py-1.5">
-                        <i class="ph-bold ph-leaf text-white text-sm"></i>
-                        <span id="carbon-score" class="carbon-score text-white font-bold text-sm">1,286</span>
-                    </div>
-                </div>
-                <div class="flex items-center justify-between text-emerald-100 text-xs">
-                    <span>同济大学 · 环境工程学院</span>
-                    <span>第 12 名</span>
                 </div>
             </div>
 
-            <!-- 今日数据卡片 -->
-            <div class="px-4 -mt-4">
-                <div class="bg-white rounded-2xl p-4 shadow-sm">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-gray-700 font-medium text-sm">今日碳足迹</span>
-                        <span class="text-emerald-600 text-xs bg-emerald-50 px-2 py-0.5 rounded-full">实时同步</span>
+            <!-- 蚂蚁森林互动区 -->
+            <div class="mx-4 mt-4 h-64 bg-gradient-to-b from-emerald-100 to-white rounded-3xl relative overflow-hidden border border-emerald-50">
+                <div class="absolute top-4 left-4">
+                    <div class="text-xs text-emerald-700 font-medium">当前累计碳积分</div>
+                    <div class="text-2xl font-bold text-emerald-900">1,286 <span class="text-sm font-normal">g</span></div>
+                </div>
+                <!-- 能量球 -->
+                <div class="energy-ball absolute top-12 left-20 bg-emerald-400/80 w-12 h-12 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-emerald-200" onclick="this.style.display='none'">
+                    <span>+12g</span>
+                    <span>步行</span>
+                </div>
+                <div class="energy-ball absolute top-24 right-12 bg-lime-400/80 w-14 h-14 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-lime-200" onclick="this.style.display='none'" style="animation-delay: 0.5s">
+                    <span>+45g</span>
+                    <span>地铁</span>
+                </div>
+                <div class="energy-ball absolute bottom-20 left-10 bg-teal-400/80 w-10 h-10 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-teal-200" onclick="this.style.display='none'" style="animation-delay: 1.2s">
+                    <span>+8g</span>
+                    <span>回收</span>
+                </div>
+                <!-- 底部装饰 -->
+                <div class="absolute bottom-0 w-full h-24 flex items-end justify-center">
+                    <i class="ph-bold ph-tree text-6xl text-emerald-600 mb-2"></i>
+                    <i class="ph-bold ph-tree text-4xl text-emerald-500 mb-2 -ml-2"></i>
+                    <i class="ph-bold ph-tree text-5xl text-emerald-400 mb-2 -ml-4"></i>
+                </div>
+            </div>
+
+            <!-- 快捷功能 -->
+            <div class="grid grid-cols-4 gap-4 px-6 mt-6">
+                <div class="flex flex-col items-center space-y-1">
+                    <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600">
+                        <i class="ph-bold ph-bicycle text-2xl"></i>
                     </div>
-                    <div class="grid grid-cols-3 gap-3">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-gray-800">8,642</div>
-                            <div class="text-gray-400 text-xs mt-1">步数 (86%)</div>
-                            <div class="w-full bg-gray-100 rounded-full h-1.5 mt-2">
-                                <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 86%"></div>
+                    <span class="text-[11px] text-gray-600">绿色骑行</span>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                    <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600">
+                        <i class="ph-bold ph-recycle text-2xl"></i>
+                    </div>
+                    <span class="text-[11px] text-gray-600">垃圾分类</span>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                    <div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600">
+                        <i class="ph-bold ph-book-open-text text-2xl"></i>
+                    </div>
+                    <span class="text-[11px] text-gray-600">低碳科普</span>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                    <div class="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center text-red-600">
+                        <i class="ph-bold ph-hand-heart text-2xl"></i>
+                    </div>
+                    <span class="text-[11px] text-gray-600">公益捐赠</span>
+                </div>
+            </div>
+
+            <!-- 低碳科普板块 -->
+            <div class="px-4 mt-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-base font-bold text-gray-800">低碳实验室</h2>
+                    <span class="text-xs text-gray-400">查看更多 &gt;</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm cursor-pointer">
+                        <img alt="Article" class="w-20 h-20 rounded-xl object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg"/>
+                        <div class="ml-3 flex flex-col justify-between">
+                            <h3 class="text-sm font-bold text-gray-800 line-clamp-2">为什么少喝一瓶瓶装水能减少 80g 碳排放？</h3>
+                            <div class="flex items-center text-[10px] text-gray-400">
+                                <i class="ph-bold ph-eye mr-1"></i>
+                                <span>1.2k 阅读</span>
+                                <span class="mx-2">|</span>
+                                <span>科普 · 环境</span>
                             </div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold today-score text-emerald-600">65</div>
-                            <div class="text-gray-400 text-xs mt-1">碳积分</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold total-carbon text-gray-800">1.28</div>
-                            <div class="text-gray-400 text-xs mt-1">减碳量(kg)</div>
-                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- 能量球区域 -->
-            <div class="px-4 mt-4">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-gray-700 font-medium text-sm">今日待收取能量</span>
-                    <span class="text-gray-400 text-xs">点击收取</span>
-                </div>
-                <div id="energy-container" class="flex items-center justify-between px-4 py-5 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl">
-                    <div class="energy-ball flex flex-col items-center" data-id="1" data-type="步行" data-amount="12">
-                        <div class="ball-icon w-14 h-14 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg">
-                            <i class="ph-bold ph-person-simple-walk text-white text-2xl"></i>
-                        </div>
-                        <span class="text-gray-600 text-xs mt-2 font-medium">步行</span>
-                        <span class="text-emerald-600 text-xs font-bold">+12g</span>
-                    </div>
-                    <div class="energy-ball flex flex-col items-center" data-id="2" data-type="地铁" data-amount="45">
-                        <div class="ball-icon w-14 h-14 rounded-full bg-gradient-to-br from-lime-400 to-yellow-400 flex items-center justify-center shadow-lg">
-                            <i class="ph-bold ph-train text-white text-2xl"></i>
-                        </div>
-                        <span class="text-gray-600 text-xs mt-2 font-medium">地铁</span>
-                        <span class="text-emerald-600 text-xs font-bold">+45g</span>
-                    </div>
-                    <div class="energy-ball flex flex-col items-center" data-id="3" data-type="回收" data-amount="8">
-                        <div class="ball-icon w-14 h-14 rounded-full bg-gradient-to-br from-teal-400 to-cyan-400 flex items-center justify-center shadow-lg">
-                            <i class="ph-bold ph-recycle text-white text-2xl"></i>
-                        </div>
-                        <span class="text-gray-600 text-xs mt-2 font-medium">回收</span>
-                        <span class="text-emerald-600 text-xs font-bold">+8g</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 打卡任务入口 -->
-            <div class="px-4 mt-4">
-                <div class="bg-white rounded-2xl p-4 shadow-sm">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-gray-700 font-medium text-sm">今日打卡</span>
-                        <a href="checkin.html" class="text-emerald-600 text-xs flex items-center gap-1">
-                            全部任务
-                            <i class="ph-bold ph-caret-right text-xs"></i>
-                        </a>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-16 h-16 rounded-2xl bg-emerald-50 flex flex-col items-center justify-center">
-                            <span class="checkin-count text-2xl font-bold text-emerald-600">1</span>
-                            <span class="text-gray-400 text-xs">已打卡</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="text-gray-800 font-medium text-sm mb-1">减碳目标 <span class="checkin-progress">(${AppState?.completedTasks?.length || 1}/4)</span></div>
-                            <div class="w-full bg-gray-100 rounded-full h-2">
-                                <div class="checkin-progress-bar bg-emerald-500 h-2 rounded-full transition-all" style="width: 25%"></div>
+                    <div class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm cursor-pointer">
+                        <img alt="Article" class="w-20 h-20 rounded-xl object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg"/>
+                        <div class="ml-3 flex flex-col justify-between">
+                            <h3 class="text-sm font-bold text-gray-800 line-clamp-2">宿舍节能挑战：每月省电 20% 的实操指南</h3>
+                            <div class="flex items-center text-[10px] text-gray-400">
+                                <i class="ph-bold ph-eye mr-1"></i>
+                                <span>856 阅读</span>
+                                <span class="mx-2">|</span>
+                                <span>生活 · 节能</span>
                             </div>
-                        </div>
-                        <a href="checkin.html" class="bg-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-medium">
-                            去打卡
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 校园活动 -->
-            <div class="px-4 mt-4">
-                <div class="activity-card bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl p-4 text-white relative overflow-hidden cursor-pointer">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                    <div class="relative z-10">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-white/20 text-xs px-2 py-0.5 rounded-full">进行中</span>
-                            <span class="text-xs opacity-80">2026校园减碳PK赛</span>
-                        </div>
-                        <div class="text-lg font-bold mb-1">清华 VS 北大</div>
-                        <div class="text-sm opacity-80 mb-3">当前进度：清华 领先</div>
-                        <div class="flex items-center gap-2">
-                            <div class="flex-1 bg-white/20 rounded-full h-2">
-                                <div class="bg-white rounded-full h-2" style="width: 65%"></div>
-                            </div>
-                            <span class="text-xs">65%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 绿色资讯 -->
-            <div class="px-4 mt-4 pb-4">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-gray-700 font-medium text-sm">绿色资讯</span>
-                    <span class="text-gray-400 text-xs">更多</span>
-                </div>
-                <div class="space-y-3">
-                    <div class="article-item bg-white rounded-xl p-3 flex gap-3 shadow-sm cursor-pointer">
-                        <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg" alt="资讯" class="w-20 h-16 rounded-lg object-cover">
-                        <div class="flex-1">
-                            <div class="text-gray-800 text-sm font-medium line-clamp-2">为什么少喝一瓶瓶装水能减少 80g 碳排放？</div>
-                            <div class="text-gray-400 text-xs mt-1">科普 · 环境 · 1,200 阅读</div>
-                        </div>
-                    </div>
-                    <div class="article-item bg-white rounded-xl p-3 flex gap-3 shadow-sm cursor-pointer">
-                        <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg" alt="资讯" class="w-20 h-16 rounded-lg object-cover">
-                        <div class="flex-1">
-                            <div class="text-gray-800 text-sm font-medium line-clamp-2">宿舍节能挑战：每月省电 20% 的实操指南</div>
-                            <div class="text-gray-400 text-xs mt-1">生活 · 节能 · 856 阅读</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 底部导航 -->
-        <div class="bg-white border-t border-gray-100 px-4 py-2 flex items-center justify-around">
-            <a href="index.html" class="flex flex-col items-center py-1 tab-active">
-                <i class="ph-bold ph-house text-xl"></i>
-                <span class="text-xs mt-0.5">首页</span>
+        <!-- 底部 TabBar -->
+        <div class="absolute bottom-0 w-full h-20 bg-white border-t border-gray-100 px-6 flex justify-between items-center pb-4">
+            <a class="flex flex-col items-center tab-active" href="index.html">
+                <i class="ph-bold ph-house text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">首页</span>
             </a>
-            <a href="checkin.html" class="flex flex-col items-center py-1 text-gray-400">
-                <i class="ph-bold ph-check-square text-xl"></i>
-                <span class="text-xs mt-0.5">打卡</span>
+            <a class="flex flex-col items-center text-gray-400" href="checkin.html">
+                <i class="ph-bold ph-calendar-check text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">打卡</span>
             </a>
-            <a href="social.html" class="flex flex-col items-center py-1 text-gray-400">
-                <i class="ph-bold ph-users text-xl"></i>
-                <span class="text-xs mt-0.5">动态</span>
+            <a class="flex flex-col items-center text-gray-400" href="social.html">
+                <i class="ph-bold ph-users-three text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">动态</span>
             </a>
-            <a href="mall.html" class="flex flex-col items-center py-1 text-gray-400 relative">
-                <i class="ph-bold ph-storefront text-xl"></i>
-                <span class="text-xs mt-0.5">商城</span>
+            <a class="flex flex-col items-center text-gray-400 relative" href="mall.html">
+                <i class="ph-bold ph-shopping-bag text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">商城</span>
                 <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
             </a>
-            <a href="profile.html" class="flex flex-col items-center py-1 text-gray-400">
-                <i class="ph-bold ph-user-circle text-xl"></i>
-                <span class="text-xs mt-0.5">我的</span>
+            <a class="flex flex-col items-center text-gray-400" href="profile.html">
+                <i class="ph-bold ph-user text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">我的</span>
             </a>
         </div>
     </div>
 
     <script src="js/mock-data.js"></script>
     <script>
-        // 注入默认状态供页面使用
         var AppState = {
             completedTasks: [2],
             carbonScore: 1286,

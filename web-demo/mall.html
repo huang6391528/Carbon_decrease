@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>碳积分商城 - 碳路者·青碳行</title>
+    <title>碳路者·青碳行 - 积分商城</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,250 +17,179 @@
         }
     </script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .tab-active { color: #10B981; }
+    </style>
 </head>
 <body data-page="mall">
     <div class="phone-container">
-        <!-- 顶部状态栏 -->
-        <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
-            <div class="text-gray-400 text-sm">2026年3月29日</div>
-            <div class="flex items-center gap-1">
-                <i class="ph-bold ph-cell-signal-full text-sm text-gray-600"></i>
-                <i class="ph-bold ph-wifi-high text-sm text-gray-600"></i>
-                <i class="ph-bold ph-battery-full text-sm text-gray-600"></i>
+        <!-- 搜索栏 (原型样式) -->
+        <div class="px-6 pt-12 pb-4 bg-white flex items-center space-x-3">
+            <div class="flex-1 bg-gray-100 rounded-2xl px-4 py-2 flex items-center space-x-2">
+                <i class="ph-bold ph-magnifying-glass text-gray-400"></i>
+                <input class="bg-transparent text-xs border-none outline-none w-full" placeholder="搜索环保好物" type="text"/>
             </div>
+            <a href="cart.html" class="relative">
+                <i class="ph-bold ph-shopping-cart text-2xl text-gray-600"></i>
+                <span class="cart-badge absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
         </div>
 
         <!-- 可滚动内容区 -->
-        <div class="scrollable-content">
-            <!-- 页面头部 -->
-            <div class="bg-white px-4 pt-4 pb-3">
-                <div class="flex items-center gap-3">
-                    <div class="flex-1 bg-gray-100 rounded-xl px-3 py-2 flex items-center gap-2">
-                        <i class="ph-bold ph-magnifying-glass text-gray-400"></i>
-                        <input type="text" id="search-input" placeholder="搜索商品" class="bg-transparent outline-none text-sm text-gray-700 flex-1">
+        <div class="h-[650px] overflow-y-auto pb-24">
+            <!-- 积分余额卡 -->
+            <div class="mx-4 mt-2 bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl p-6 text-white shadow-xl flex justify-between items-center">
+                <div>
+                    <div class="text-[10px] text-slate-400 mb-1">当前可用碳积分</div>
+                    <div class="text-2xl font-bold carbon-score">1,286</div>
+                    <div class="text-[10px] text-emerald-400 mt-2 flex items-center">
+                        <i class="ph-bold ph-arrow-up-right mr-1"></i>
+                        比昨日增加 65g
                     </div>
-                    <div class="relative">
-                        <a href="cart.html" class="block">
-                            <i class="ph-bold ph-shopping-cart text-gray-600 text-2xl"></i>
-                        </a>
-                        <span class="cart-badge absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+                </div>
+                <button class="bg-emerald-500 text-white text-[10px] font-bold px-4 py-2 rounded-full shadow-lg cursor-pointer">去赚积分</button>
+            </div>
+
+            <!-- 金刚区分类 -->
+            <div class="grid grid-cols-4 gap-4 px-6 mt-6">
+                <div class="flex flex-col items-center space-y-1">
+                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-gray-50 cursor-pointer">
+                        <i class="ph-bold ph-ticket text-2xl text-red-500"></i>
                     </div>
+                    <span class="text-[10px] text-gray-600 font-medium">代金券</span>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-gray-50 cursor-pointer">
+                        <i class="ph-bold ph-coffee text-2xl text-orange-500"></i>
+                    </div>
+                    <span class="text-[10px] text-gray-600 font-medium">校园饮品</span>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-gray-50 cursor-pointer">
+                        <i class="ph-bold ph-backpack text-2xl text-blue-500"></i>
+                    </div>
+                    <span class="text-[10px] text-gray-600 font-medium">环保周边</span>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-gray-50 cursor-pointer">
+                        <i class="ph-bold ph-sparkle text-2xl text-emerald-500"></i>
+                    </div>
+                    <span class="text-[10px] text-gray-600 font-medium">积分抽奖</span>
                 </div>
             </div>
 
-            <!-- 用户碳积分 -->
-            <div class="px-4 pt-2">
-                <div class="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-4">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-emerald-100 text-xs mb-1">我的碳积分</div>
-                            <div class="text-white text-3xl font-bold carbon-score">1,286</div>
-                        </div>
-                        <div class="flex items-center gap-2 bg-white/20 rounded-full px-3 py-1.5">
-                            <i class="ph-bold ph-leaf text-white text-sm"></i>
-                            <span class="text-white text-sm">足够兑换</span>
-                        </div>
+            <!-- 限时秒杀 -->
+            <div class="px-4 mt-8">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex items-center space-x-2">
+                        <h2 class="text-base font-bold text-gray-800">限时秒杀</h2>
+                        <span class="bg-red-500 text-white text-[8px] px-1.5 py-0.5 rounded uppercase font-bold">12:00 场</span>
                     </div>
+                    <span class="text-xs text-gray-400">更多 &gt;</span>
                 </div>
-            </div>
-
-            <!-- 分类导航 -->
-            <div class="px-4 pt-4">
-                <div class="flex items-center gap-4 overflow-x-auto no-scrollbar">
-                    <div class="category-tab flex flex-col items-center flex-shrink-0 ring-2 ring-emerald-500 rounded-full p-1" data-category="全部">
-                        <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mb-1">
-                            <i class="ph-bold ph-storefront text-emerald-600 text-xl"></i>
-                        </div>
-                        <span class="text-xs text-emerald-600 font-medium">全部</span>
-                    </div>
-                    <div class="category-tab flex flex-col items-center flex-shrink-0" data-category="餐饮券">
-                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mb-1">
-                            <i class="ph-bold ph-cup-hot text-orange-600 text-xl"></i>
-                        </div>
-                        <span class="text-xs text-gray-600">餐饮券</span>
-                    </div>
-                    <div class="category-tab flex flex-col items-center flex-shrink-0" data-category="出行">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-1">
-                            <i class="ph-bold ph-bicycle text-blue-600 text-xl"></i>
-                        </div>
-                        <span class="text-xs text-gray-600">出行</span>
-                    </div>
-                    <div class="category-tab flex flex-col items-center flex-shrink-0" data-category="环保好物">
-                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-1">
-                            <i class="ph-bold ph-recycle text-green-600 text-xl"></i>
-                        </div>
-                        <span class="text-xs text-gray-600">环保好物</span>
-                    </div>
-                    <div class="category-tab flex flex-col items-center flex-shrink-0" data-category="限定礼品">
-                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-1">
-                            <i class="ph-bold ph-gift text-purple-600 text-xl"></i>
-                        </div>
-                        <span class="text-xs text-gray-600">限定礼品</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 热门推荐 -->
-            <div class="px-4 pt-4">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-gray-800 font-semibold text-base">热门兑换</span>
-                    <span class="text-gray-400 text-xs">查看更多</span>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <!-- 商品1 -->
-                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm" data-id="1">
-                        <div class="relative">
-                            <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg" alt="商品图片" class="w-full h-28 object-cover">
-                            <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded">
-                                热销 1200+
+                <div class="flex space-x-4 overflow-x-auto pb-2 scrollbar-hide">
+                    <div class="min-w-[120px] bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm cursor-pointer">
+                        <img alt="Product" class="w-full h-24 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg"/>
+                        <div class="p-2">
+                            <h3 class="text-[10px] font-bold text-gray-800 line-clamp-1">瑞幸咖啡5元抵扣券</h3>
+                            <div class="flex items-center mt-1">
+                                <span class="text-xs font-bold text-red-500">200g</span>
+                                <span class="text-[8px] text-gray-400 line-through ml-1">500g</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="min-w-[120px] bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm cursor-pointer">
+                        <img alt="Product" class="w-full h-24 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg"/>
+                        <div class="p-2">
+                            <h3 class="text-[10px] font-bold text-gray-800 line-clamp-1">环保帆布手提袋</h3>
+                            <div class="flex items-center mt-1">
+                                <span class="text-xs font-bold text-red-500">800g</span>
+                                <span class="text-[8px] text-gray-400 line-through ml-1">1200g</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="min-w-[120px] bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm cursor-pointer">
+                        <img alt="Product" class="w-full h-24 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg"/>
+                        <div class="p-2">
+                            <h3 class="text-[10px] font-bold text-gray-800 line-clamp-1">图书库VIP周卡</h3>
+                            <div class="flex items-center mt-1">
+                                <span class="text-xs font-bold text-red-500">150g</span>
+                                <span class="text-[8px] text-gray-400 line-through ml-1">300g</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 商品瀑布流 -->
+            <div class="px-4 mt-8">
+                <h2 class="text-base font-bold text-gray-800 mb-4">为您推荐</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm cursor-pointer">
+                        <img alt="Product" class="w-full h-40 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg"/>
                         <div class="p-3">
-                            <div class="text-gray-800 text-sm font-medium line-clamp-2 mb-2">可降解竹炭牙刷 4支装 (绿色环保)</div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <span class="text-emerald-600 font-bold">450</span>
-                                    <span class="text-gray-400 text-xs">g</span>
-                                    <span class="text-gray-400 text-xs line-through ml-1">600g</span>
-                                </div>
-                                <span class="text-xs text-gray-400">已兑 1200</span>
+                            <h3 class="text-xs font-bold text-gray-800 line-clamp-2">可降解竹炭牙刷 4支装 (绿色环保)</h3>
+                            <div class="flex justify-between items-center mt-3">
+                                <span class="text-emerald-600 font-bold text-sm">450g</span>
+                                <span class="text-[9px] text-gray-400">已兑 1.2k</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- 商品2 -->
-                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm" data-id="2">
-                        <div class="relative">
-                            <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg" alt="商品图片" class="w-full h-28 object-cover">
-                            <div class="absolute top-2 left-2 bg-orange-500 text-white text-xs px-2 py-0.5 rounded">
-                                爆款
-                            </div>
-                        </div>
+                    <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm cursor-pointer">
+                        <img alt="Product" class="w-full h-40 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg"/>
                         <div class="p-3">
-                            <div class="text-gray-800 text-sm font-medium line-clamp-2 mb-2">校园食堂无门槛3元券</div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <span class="text-emerald-600 font-bold">300</span>
-                                    <span class="text-gray-400 text-xs">g</span>
-                                    <span class="text-gray-400 text-xs line-through ml-1">500g</span>
-                                </div>
-                                <span class="text-xs text-gray-400">已兑 4800</span>
+                            <h3 class="text-xs font-bold text-gray-800 line-clamp-2">校园食堂无门槛3元券</h3>
+                            <div class="flex justify-between items-center mt-3">
+                                <span class="text-emerald-600 font-bold text-sm">300g</span>
+                                <span class="text-[9px] text-gray-400">已兑 4.8k</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm cursor-pointer">
+                        <img alt="Product" class="w-full h-40 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg"/>
+                        <div class="p-3">
+                            <h3 class="text-xs font-bold text-gray-800 line-clamp-2">"青碳行"限定联名环保杯套</h3>
+                            <div class="flex justify-between items-center mt-3">
+                                <span class="text-emerald-600 font-bold text-sm">120g</span>
+                                <span class="text-[9px] text-gray-400">仅剩 12件</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm cursor-pointer">
+                        <img alt="Product" class="w-full h-40 object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg"/>
+                        <div class="p-3">
+                            <h3 class="text-xs font-bold text-gray-800 line-clamp-2">校园单车包月免费卡</h3>
+                            <div class="flex justify-between items-center mt-3">
+                                <span class="text-emerald-600 font-bold text-sm">1500g</span>
+                                <span class="text-[9px] text-gray-400">人气爆款</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- 更多商品 -->
-            <div class="px-4 pt-4">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-gray-800 font-semibold text-base">更多好物</span>
-                </div>
-                <div class="space-y-3">
-                    <!-- 商品3 -->
-                    <div class="product-card bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="3">
-                        <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg" alt="商品图片" class="w-24 h-24 rounded-xl object-cover">
-                        <div class="flex-1 flex flex-col justify-between py-1">
-                            <div>
-                                <div class="text-gray-800 font-medium text-sm">"青碳行"限定联名环保杯套</div>
-                                <div class="text-gray-400 text-xs mt-1">校园限定 · 限量 12 份</div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <span class="text-emerald-600 font-bold text-lg">120</span>
-                                    <span class="text-gray-400 text-xs">g</span>
-                                </div>
-                                <button class="quick-exchange-btn bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs">立即兑换</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 商品4 -->
-                    <div class="product-card bg-white rounded-2xl p-3 flex gap-3 shadow-sm relative" data-id="4">
-                        <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-2 py-0.5 rounded-bl-lg rounded-tr-xl">
-                            限时
-                        </div>
-                        <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg" alt="商品图片" class="w-24 h-24 rounded-xl object-cover">
-                        <div class="flex-1 flex flex-col justify-between py-1">
-                            <div>
-                                <div class="text-gray-800 font-medium text-sm">校园单车包月免费卡</div>
-                                <div class="text-gray-400 text-xs mt-1">绿色出行 · 每月可兑</div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <span class="text-emerald-600 font-bold text-lg">1500</span>
-                                    <span class="text-gray-400 text-xs">g</span>
-                                    <span class="text-gray-400 text-xs line-through ml-1">2000g</span>
-                                </div>
-                                <button class="quick-exchange-btn bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs">立即兑换</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 商品5 -->
-                    <div class="product-card bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="5">
-                        <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg" alt="商品图片" class="w-24 h-24 rounded-xl object-cover">
-                        <div class="flex-1 flex flex-col justify-between py-1">
-                            <div>
-                                <div class="text-gray-800 font-medium text-sm">瑞幸咖啡5元抵扣券</div>
-                                <div class="text-gray-400 text-xs mt-1">到店使用 · 全校通用</div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <span class="text-emerald-600 font-bold text-lg">200</span>
-                                    <span class="text-gray-400 text-xs">g</span>
-                                    <span class="text-gray-400 text-xs line-through ml-1">500g</span>
-                                </div>
-                                <button class="quick-exchange-btn bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs">立即兑换</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 商品6 -->
-                    <div class="product-card bg-white rounded-2xl p-3 flex gap-3 shadow-sm" data-id="6">
-                        <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/37efc3dd161e40efaa15aad56c725951.jpg" alt="商品图片" class="w-24 h-24 rounded-xl object-cover">
-                        <div class="flex-1 flex flex-col justify-between py-1">
-                            <div>
-                                <div class="text-gray-800 font-medium text-sm">环保帆布手提袋</div>
-                                <div class="text-gray-400 text-xs mt-1">可循环使用 · 时尚环保</div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <span class="text-emerald-600 font-bold text-lg">800</span>
-                                    <span class="text-gray-400 text-xs">g</span>
-                                    <span class="text-gray-400 text-xs line-through ml-1">1200g</span>
-                                </div>
-                                <button class="quick-exchange-btn bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs">立即兑换</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="h-4"></div>
         </div>
 
-        <!-- 底部导航 -->
-        <div class="bg-white border-t border-gray-100 px-4 py-2 flex items-center justify-around">
-            <a href="index.html" class="flex flex-col items-center py-1 text-gray-400">
-                <i class="ph-bold ph-house text-xl"></i>
-                <span class="text-xs mt-0.5">首页</span>
+        <!-- 底部 TabBar -->
+        <div class="absolute bottom-0 w-full h-20 bg-white border-t border-gray-100 px-6 flex justify-between items-center pb-4">
+            <a class="flex flex-col items-center text-gray-400" href="index.html">
+                <i class="ph-bold ph-house text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">首页</span>
             </a>
-            <a href="checkin.html" class="flex flex-col items-center py-1 text-gray-400">
-                <i class="ph-bold ph-check-square text-xl"></i>
-                <span class="text-xs mt-0.5">打卡</span>
+            <a class="flex flex-col items-center text-gray-400" href="checkin.html">
+                <i class="ph-bold ph-calendar-check text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">打卡</span>
             </a>
-            <a href="social.html" class="flex flex-col items-center py-1 text-gray-400">
-                <i class="ph-bold ph-users text-xl"></i>
-                <span class="text-xs mt-0.5">动态</span>
+            <a class="flex flex-col items-center text-gray-400" href="social.html">
+                <i class="ph-bold ph-users-three text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">动态</span>
             </a>
-            <a href="mall.html" class="flex flex-col items-center py-1 tab-active">
-                <i class="ph-bold ph-storefront text-xl"></i>
-                <span class="text-xs mt-0.5">商城</span>
+            <a class="flex flex-col items-center tab-active" href="mall.html">
+                <i class="ph-bold ph-shopping-bag text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">商城</span>
             </a>
-            <a href="profile.html" class="flex flex-col items-center py-1 text-gray-400">
-                <i class="ph-bold ph-user-circle text-xl"></i>
-                <span class="text-xs mt-0.5">我的</span>
+            <a class="flex flex-col items-center text-gray-400" href="profile.html">
+                <i class="ph-bold ph-user text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">我的</span>
             </a>
         </div>
     </div>
