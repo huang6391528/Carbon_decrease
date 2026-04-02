@@ -297,6 +297,13 @@
                     updateScoreDisplay();
 
                     showToast(`打卡成功！ +${task.reward}g`);
+
+                    // 调用真实 API 写入数据库（静默失败不影响体验）
+                    if (window.CarbonAPI) {
+                        CarbonAPI.checkin(taskId, task.reward, task.title).catch(function(err) {
+                            console.error('[App] 打卡API调用失败:', err);
+                        });
+                    }
                 } else {
                     showToast('请完成相应任务后再打卡');
                 }
@@ -609,6 +616,26 @@
                 } else {
                     showToast('碳积分不足');
                 }
+            });
+        });
+    }
+
+    // ========== 商城页 - 加入购物车按钮 ==========
+
+    function initMallCartButtons() {
+        document.querySelectorAll('.cart-btn').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const productId = parseInt(this.dataset.id, 10);
+                const existingItem = AppState.cartItems.find(function(item) { return item.productId === productId; });
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    AppState.cartItems.push({ productId: productId, quantity: 1 });
+                }
+                saveState(AppState);
+                updateCartBadge();
+                showToast('已加入购物车');
             });
         });
     }
@@ -1124,6 +1151,7 @@
                 initSearchBox();
                 initCategoryTabs();
                 initQuickExchange();
+                initMallCartButtons();
                 updateCartBadge();
                 break;
             case 'cart':

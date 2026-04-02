@@ -37,3 +37,37 @@ SELECT '字段检查' AS 类别, 'energy_balls.collected_on_utc', (EXISTS (
     SELECT 1 FROM information_schema.columns
     WHERE table_schema='public' AND table_name='energy_balls' AND column_name='collected_on_utc'
 )) AS 存在;
+
+-- ================================================
+-- 打卡功能测试数据
+-- 执行方式：在 Supabase SQL Editor 新建查询，粘贴后 Run
+-- ================================================
+
+-- 6. 插入测试用户（手机号 12345600000 对应的 Supabase Auth 用户）
+-- 注意：auth.users 表无法通过普通 SQL 直接插入，这里需要先在 Supabase Auth 创建用户
+-- 如果 auth.users 已有该手机号用户，查询其 id 后填入 profiles
+-- 临时方案：直接插入 profiles（不影响功能测试）
+INSERT INTO public.profiles (id, nickname, carbon_score, school, is_verified)
+VALUES (
+    '2dedd653-78ca-4104-8701-7260700904d5',
+    '测试用户',
+    1286,
+    '清华大学',
+    true
+)
+ON CONFLICT (id) DO UPDATE SET
+    nickname = EXCLUDED.nickname,
+    carbon_score = EXCLUDED.carbon_score,
+    is_verified = EXCLUDED.is_verified;
+
+-- 7. 写入初始碳积分记录（让打卡历史看起来更真实）
+INSERT INTO public.carbon_records (user_id, type, amount, description)
+VALUES
+    ('2dedd653-78ca-4104-8701-7260700904d5', '步行', 12, '每日步行打卡'),
+    ('2dedd653-78ca-4104-8701-7260700904d5', '地铁', 45, '地铁出行'),
+    ('2dedd653-78ca-4104-8701-7260700904d5', '回收', 8, '塑料瓶回收')
+ON CONFLICT DO NOTHING;
+
+-- 8. 查询确认
+SELECT '测试用户' AS 类别, nickname, carbon_score FROM public.profiles
+WHERE id = '2dedd653-78ca-4104-8701-7260700904d5';
