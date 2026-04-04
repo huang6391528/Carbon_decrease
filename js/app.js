@@ -112,7 +112,8 @@
             const ballId = parseInt(ball.dataset.id, 10);
             if (AppState.collectedBalls.includes(ballId)) {
                 ball.classList.add('collected');
-                ball.querySelector('.ball-icon').style.opacity = '0.3';
+                var icon = ball.querySelector('.ball-icon');
+                if (icon) icon.style.opacity = '0.3';
             }
         });
 
@@ -127,7 +128,8 @@
 
             // 收集动画
             ball.classList.add('collected');
-            ball.querySelector('.ball-icon').style.opacity = '0.3';
+            var icon = ball.querySelector('.ball-icon');
+            if (icon) icon.style.opacity = '0.3';
 
             // 弹出分数动画
             const popup = document.createElement('div');
@@ -934,70 +936,35 @@
                         `;
                         break;
                     case 'history':
-                        title = '历史记录';
-                        content = `
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                                    <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                                        <i class="ph-bold ph-person-simple-walk text-emerald-600"></i>
-                                    </div>
-                                    <div class="flex-1">
-                                        <div class="text-gray-800 text-sm font-medium">步行打卡</div>
-                                        <div class="text-gray-400 text-xs">今日 10:30</div>
-                                    </div>
-                                    <span class="text-emerald-600 font-medium text-sm">+12g</span>
-                                </div>
-                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                                        <i class="ph-bold ph-bus text-blue-600"></i>
-                                    </div>
-                                    <div class="flex-1">
-                                        <div class="text-gray-800 text-sm font-medium">公交出行</div>
-                                        <div class="text-gray-400 text-xs">今日 08:15</div>
-                                    </div>
-                                    <span class="text-emerald-600 font-medium text-sm">+8g</span>
-                                </div>
-                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-                                        <i class="ph-bold ph-bowl-food text-orange-600"></i>
-                                    </div>
-                                    <div class="flex-1">
-                                        <div class="text-gray-800 text-sm font-medium">光盘行动</div>
-                                        <div class="text-gray-400 text-xs">今日 12:00</div>
-                                    </div>
-                                    <span class="text-emerald-600 font-medium text-sm">+10g</span>
-                                </div>
-                            </div>
-                        `;
-                        break;
+                        window.location.href = 'verification.html';
+                        return;
                     case 'settings':
-                        title = '设置';
-                        content = `
+                        showModal('设置', `
                             <div class="space-y-2">
-                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl cursor-pointer">
+                                <a href="announcements.html" class="flex items-center justify-between p-3 bg-gray-50 rounded-xl cursor-pointer">
                                     <div class="flex items-center gap-3">
                                         <i class="ph-bold ph-bell text-gray-500"></i>
                                         <span class="text-gray-700">消息通知</span>
                                     </div>
                                     <i class="ph-bold ph-caret-right text-gray-400"></i>
-                                </div>
-                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl cursor-pointer">
+                                </a>
+                                <a href="help.html" class="flex items-center justify-between p-3 bg-gray-50 rounded-xl cursor-pointer">
                                     <div class="flex items-center gap-3">
-                                        <i class="ph-bold ph-lock text-gray-500"></i>
-                                        <span class="text-gray-700">隐私设置</span>
+                                        <i class="ph-bold ph-question text-gray-500"></i>
+                                        <span class="text-gray-700">帮助与反馈</span>
                                     </div>
                                     <i class="ph-bold ph-caret-right text-gray-400"></i>
-                                </div>
-                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl cursor-pointer">
+                                </a>
+                                <a href="about.html" class="flex items-center justify-between p-3 bg-gray-50 rounded-xl cursor-pointer">
                                     <div class="flex items-center gap-3">
                                         <i class="ph-bold ph-info text-gray-500"></i>
                                         <span class="text-gray-700">关于我们</span>
                                     </div>
                                     <i class="ph-bold ph-caret-right text-gray-400"></i>
-                                </div>
+                                </a>
                             </div>
-                        `;
-                        break;
+                        `, ['<button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded-xl font-medium modal-close">关闭</button>']);
+                        return;
                     case 'orders':
                         window.location.href = 'orders.html';
                         return;

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>绿动校园 - 个人中心</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/echarts.min.5.4.3.js"></script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-slate-900 flex justify-center items-center min-h-screen">
+<div class="w-[375px] h-[812px] bg-white rounded-[3rem] overflow-hidden relative shadow-2xl border-[8px] border-slate-800 flex flex-col">
+<div class="flex-1 overflow-y-auto no-scrollbar">
+<!-- Profile Header -->
+<div class="bg-emerald-50 pt-12 pb-10 px-8 rounded-b-[3.5rem] relative overflow-hidden">
+<div class="absolute top-4 right-6 flex space-x-3">
+<iconify-icon class="text-emerald-800 text-xl" icon="mdi:qrcode-scan"></iconify-icon>
+<iconify-icon class="text-emerald-800 text-xl" icon="mdi:cog-outline"></iconify-icon>
+</div>
+<div class="flex items-center space-x-5">
+<div class="relative">
+<img class="w-20 h-20 rounded-full border-4 border-white shadow-lg" src="/agent-py/static/source/images/placeholder.svg"/>
+<div class="absolute -bottom-1 -right-1 bg-yellow-400 w-7 h-7 rounded-full flex items-center justify-center border-2 border-white">
+<iconify-icon class="text-white text-xs" icon="mdi:star"></iconify-icon>
+</div>
+</div>
+<div>
+<h2 class="text-xl font-black text-slate-800">陈小绿</h2>
+<p class="text-[10px] font-bold text-emerald-600 bg-emerald-100/50 px-2 py-0.5 rounded-full mt-1 w-fit">环保大使 Lvl.5</p>
+<div class="flex mt-3 space-x-2">
+<iconify-icon class="text-xl" icon="noto:trophy"></iconify-icon>
+<iconify-icon class="text-xl" icon="noto:medal"></iconify-icon>
+<iconify-icon class="text-xl" icon="noto:crown"></iconify-icon>
+</div>
+</div>
+</div>
+</div>
+<!-- Dashboard Stats -->
+<div class="px-6 -mt-8">
+<div class="bg-white rounded-[2rem] shadow-xl shadow-slate-100 border border-slate-50 p-6 grid grid-cols-2 gap-y-8">
+<div class="text-center border-r border-slate-50">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">累计减排</p>
+<p class="text-xl font-black text-slate-800 mt-1">12.5 <span class="text-xs font-normal">kg</span></p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">种植树木</p>
+<p class="text-xl font-black text-slate-800 mt-1">3.2 <span class="text-xs font-normal">棵</span></p>
+</div>
+<div class="col-span-2">
+<p class="text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-4">行为数据分布</p>
+<div class="w-full h-40" id="chart-behavior"></div>
+</div>
+</div>
+</div>
+<!-- Data Center Grid -->
+<div class="px-6 mt-8">
+<h3 class="text-xs font-black text-slate-800 tracking-wider mb-4 px-2">数据中心</h3>
+<div class="grid grid-cols-4 gap-2">
+<div class="bg-slate-50 p-3 rounded-2xl flex flex-col items-center">
+<iconify-icon class="text-2xl text-blue-500 mb-1" icon="mdi:chart-timeline-variant"></iconify-icon>
+<span class="text-[9px] font-bold text-slate-600">减排趋势</span>
+</div>
+<div class="bg-slate-50 p-3 rounded-2xl flex flex-col items-center">
+<iconify-icon class="text-2xl text-orange-500 mb-1" icon="mdi:wall"></iconify-icon>
+<span class="text-[9px] font-bold text-slate-600">成就墙</span>
+</div>
+<div class="bg-slate-50 p-3 rounded-2xl flex flex-col items-center">
+<iconify-icon class="text-2xl text-emerald-500 mb-1" icon="mdi:file-certificate-outline"></iconify-icon>
+<span class="text-[9px] font-bold text-slate-600">年度报告</span>
+</div>
+<div class="bg-slate-50 p-3 rounded-2xl flex flex-col items-center">
+<iconify-icon class="text-2xl text-purple-500 mb-1" icon="mdi:account-group-outline"></iconify-icon>
+<span class="text-[9px] font-bold text-slate-600">团队排名</span>
+</div>
+</div>
+</div>
+<!-- Menu List -->
+<div class="px-6 mt-8 space-y-3">
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl">
+<div class="flex items-center space-x-3">
+<iconify-icon class="text-xl text-slate-400" icon="mdi:history"></iconify-icon>
+<span class="text-xs font-bold text-slate-700">低碳轨迹记录</span>
+</div>
+<iconify-icon class="text-slate-300" icon="mdi:chevron-right"></iconify-icon>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl">
+<div class="flex items-center space-x-3">
+<iconify-icon class="text-xl text-slate-400" icon="mdi:sword-cross"></iconify-icon>
+<span class="text-xs font-bold text-slate-700">全校挑战赛</span>
+</div>
+<span class="bg-red-500 text-white text-[8px] font-black px-2 py-0.5 rounded-full uppercase">NEW</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl">
+<div class="flex items-center space-x-3">
+<iconify-icon class="text-xl text-slate-400" icon="mdi:shield-check-outline"></iconify-icon>
+<span class="text-xs font-bold text-slate-700">隐私与隐私保护</span>
+</div>
+<iconify-icon class="text-slate-300" icon="mdi:chevron-right"></iconify-icon>
+</div>
+</div>
+<!-- Badge Wall Scrolling -->
+<div class="mt-8 pb-10">
+<h3 class="text-xs font-black text-slate-800 tracking-wider mb-4 px-8">荣誉勋章展示</h3>
+<div class="flex space-x-6 overflow-x-auto no-scrollbar px-8 pb-2">
+<div class="min-w-[80px] h-20 bg-emerald-50 rounded-2xl flex flex-col items-center justify-center border border-emerald-100">
+<iconify-icon class="text-3xl" icon="noto:seedling"></iconify-icon>
+<span class="text-[8px] font-bold text-emerald-800 mt-1">初探绿意</span>
+</div>
+<div class="min-w-[80px] h-20 bg-blue-50 rounded-2xl flex flex-col items-center justify-center border border-blue-100">
+<iconify-icon class="text-3xl" icon="noto:runner-light-skin-tone"></iconify-icon>
+<span class="text-[8px] font-bold text-blue-800 mt-1">校园跑者</span>
+</div>
+<div class="min-w-[80px] h-20 bg-yellow-50 rounded-2xl flex flex-col items-center justify-center border border-yellow-100">
+<iconify-icon class="text-3xl" icon="noto:glowing-star"></iconify-icon>
+<span class="text-[8px] font-bold text-yellow-800 mt-1">打卡达人</span>
+</div>
+<div class="min-w-[80px] h-20 bg-gray-50 rounded-2xl flex flex-col items-center justify-center grayscale opacity-40">
+<iconify-icon class="text-3xl" icon="noto:earth-americas"></iconify-icon>
+<span class="text-[8px] font-bold text-slate-400 mt-1">地球卫士</span>
+</div>
+</div>
+<div class="text-center mt-8">
+<p class="text-xs text-emerald-600 font-black italic tracking-widest">“每一小步，皆是地球的新生”</p>
+<p class="text-[9px] text-slate-300 mt-2 uppercase">My Carbon Declaration · 2026.04.05</p>
+</div>
+</div>
+</div>
+<!-- Bottom Nav -->
+<div class="h-20 bg-white border-t border-slate-50 flex justify-around items-center px-4 z-40">
+<a class="flex flex-col items-center text-slate-400" href="index.html">
+<iconify-icon class="text-2xl" icon="mdi:home-variant"></iconify-icon>
+<span class="text-[10px] font-bold mt-1">首页</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="run.html">
+<iconify-icon class="text-2xl" icon="mdi:run"></iconify-icon>
+<span class="text-[10px] font-bold mt-1">校园跑</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="action.html">
+<iconify-icon class="text-2xl" icon="mdi:leaf"></iconify-icon>
+<span class="text-[10px] font-bold mt-1">低碳</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="store.html">
+<iconify-icon class="text-2xl" icon="mdi:shopping-outline"></iconify-icon>
+<span class="text-[10px] font-bold mt-1">商城</span>
+</a>
+<a class="flex flex-col items-center text-emerald-500" href="profile.html">
+<iconify-icon class="text-2xl" icon="mdi:account-outline"></iconify-icon>
+<span class="text-[10px] font-bold mt-1">我的</span>
+</a>
+</div>
+</div>
+<script>
+        window.onload = function() {
+            const chartDom = document.getElementById('chart-behavior');
+            const myChart = echarts.init(chartDom);
+            const option = {
+                radar: {
+                    indicator: [
+                        { name: '运动', max: 100 },
+                        { name: '饮食', max: 100 },
+                        { name: '出行', max: 100 },
+                        { name: '回收', max: 100 },
+                        { name: '节水', max: 100 }
+                    ],
+                    radius: '65%',
+                    axisName: {
+                        color: '#94a3b8',
+                        fontSize: 8,
+                        fontWeight: 'bold'
+                    },
+                    splitArea: { show: false },
+                    splitLine: { lineStyle: { color: '#f1f5f9' } }
+                },
+                series: [{
+                    type: 'radar',
+                    data: [
+                        {
+                            value: [90, 70, 85, 60, 50],
+                            name: '减排能力分布',
+                            areaStyle: { color: 'rgba(16, 185, 129, 0.2)' },
+                            lineStyle: { color: '#10b981', width: 2 },
+                            itemStyle: { color: '#10b981' }
+                        }
+                    ]
+                }]
+            };
+            myChart.setOption(option);
+        };
+    </script>
+</body>
+</html>

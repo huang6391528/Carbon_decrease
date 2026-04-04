@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碳钱包 - 碳路者·青碳行</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { background: #0f172a; }
+        .tab-active { color: #10B981; }
+    </style>
+</head>
+<body data-page="wallet">
+    <div class="phone-container" style="background:#0f172a;">
+        <!-- 顶部状态栏 -->
+        <div class="px-4 py-3 flex items-center justify-between">
+            <div class="text-gray-400 text-sm">2026年3月29日</div>
+            <div class="flex items-center gap-1">
+                <i class="ph-bold ph-cell-signal-full text-sm text-gray-600"></i>
+                <i class="ph-bold ph-wifi-high text-sm text-gray-600"></i>
+                <i class="ph-bold ph-battery-full text-sm text-gray-600"></i>
+            </div>
+        </div>
+
+        <!-- 页面头部 -->
+        <div class="px-4 pb-2 flex items-center justify-between">
+            <a href="profile.html" class="text-white/70">
+                <i class="ph-bold ph-arrow-left text-xl"></i>
+            </a>
+            <span class="text-white font-bold text-lg">碳钱包</span>
+            <a href="profile.html" class="text-emerald-400 text-sm font-medium">返回</a>
+        </div>
+
+        <!-- 可滚动内容区 -->
+        <div class="h-[640px] overflow-y-auto pb-24 px-4">
+            <!-- 钱包总览卡片 -->
+            <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-6 text-white shadow-2xl mt-2 mb-6">
+                <div class="text-emerald-100 text-xs mb-1">账户碳积分余额</div>
+                <div class="flex items-end gap-2 mb-1">
+                    <span class="text-5xl font-black carbon-score" id="wallet-balance">1,286</span>
+                    <span class="text-2xl font-bold mb-1">g</span>
+                </div>
+                <div class="text-emerald-100 text-xs mb-6">≈ 可提现约 <span class="text-white font-bold">2.57</span> 元</div>
+
+                <!-- 提现按钮 -->
+                <div class="flex gap-3">
+                    <button id="withdraw-btn" class="flex-1 bg-white text-emerald-600 font-bold py-3 rounded-2xl shadow-lg text-center">
+                        提现
+                    </button>
+                    <button id="recharge-btn" class="flex-1 bg-white/20 text-white font-bold py-3 rounded-2xl text-center backdrop-blur">
+                        充值积分
+                    </button>
+                </div>
+            </div>
+
+            <!-- 收支统计 -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-slate-800 rounded-2xl p-4 text-center">
+                    <div class="text-emerald-400 text-xs mb-1">累计收入</div>
+                    <div class="text-white text-xl font-bold">3,486g</div>
+                    <div class="text-gray-500 text-[10px] mt-1">总获得碳积分</div>
+                </div>
+                <div class="bg-slate-800 rounded-2xl p-4 text-center">
+                    <div class="text-red-400 text-xs mb-1">累计支出</div>
+                    <div class="text-white text-xl font-bold">2,200g</div>
+                    <div class="text-gray-500 text-[10px] mt-1">已兑换积分</div>
+                </div>
+            </div>
+
+            <!-- 收支记录 -->
+            <div class="mb-4 flex items-center justify-between">
+                <h3 class="text-white font-bold text-base">收支明细</h3>
+                <button class="text-emerald-400 text-xs">查看全部 &gt;</button>
+            </div>
+
+            <div class="space-y-3" id="transaction-list">
+                <!-- 收入：打卡 -->
+                <div class="bg-slate-800 rounded-2xl p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-900/50 rounded-xl flex items-center justify-center">
+                            <i class="ph-bold ph-check-circle text-emerald-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">减免外卖餐具打卡</div>
+                            <div class="text-gray-500 text-xs">今天 10:32</div>
+                        </div>
+                    </div>
+                    <span class="text-emerald-400 font-bold text-sm">+15g</span>
+                </div>
+
+                <!-- 收入：步行 -->
+                <div class="bg-slate-800 rounded-2xl p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-900/50 rounded-xl flex items-center justify-center">
+                            <i class="ph-bold ph-person-simple-walk text-blue-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">校园步行能量收集</div>
+                            <div class="text-gray-500 text-xs">今天 09:15</div>
+                        </div>
+                    </div>
+                    <span class="text-emerald-400 font-bold text-sm">+12g</span>
+                </div>
+
+                <!-- 支出：兑换 -->
+                <div class="bg-slate-800 rounded-2xl p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-purple-900/50 rounded-xl flex items-center justify-center">
+                            <i class="ph-bold ph-shopping-bag-open text-purple-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">兑换瑞幸咖啡抵扣券</div>
+                            <div class="text-gray-500 text-xs">昨天 14:20</div>
+                        </div>
+                    </div>
+                    <span class="text-red-400 font-bold text-sm">-200g</span>
+                </div>
+
+                <!-- 收入：公交 -->
+                <div class="bg-slate-800 rounded-2xl p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal-900/50 rounded-xl flex items-center justify-center">
+                            <i class="ph-bold ph-bus text-teal-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">校园公交出行同步</div>
+                            <div class="text-gray-500 text-xs">昨天 08:30</div>
+                        </div>
+                    </div>
+                    <span class="text-emerald-400 font-bold text-sm">+8g</span>
+                </div>
+
+                <!-- 支出：提现 -->
+                <div class="bg-slate-800 rounded-2xl p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-yellow-900/50 rounded-xl flex items-center justify-center">
+                            <i class="ph-bold ph-wallet text-yellow-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">提现至微信零钱</div>
+                            <div class="text-gray-500 text-xs">3月26日 16:45</div>
+                        </div>
+                    </div>
+                    <span class="text-red-400 font-bold text-sm">-500g</span>
+                </div>
+
+                <!-- 收入：成就 -->
+                <div class="bg-slate-800 rounded-2xl p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-orange-900/50 rounded-xl flex items-center justify-center">
+                            <i class="ph-bold ph-trophy text-orange-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">成就奖励：暴走达人</div>
+                            <div class="text-gray-500 text-xs">3月25日 20:00</div>
+                        </div>
+                    </div>
+                    <span class="text-emerald-400 font-bold text-sm">+100g</span>
+                </div>
+
+                <!-- 收入：兑换充值 -->
+                <div class="bg-slate-800 rounded-2xl p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-cyan-900/50 rounded-xl flex items-center justify-center">
+                            <i class="ph-bold ph-coins text-cyan-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-medium">积分兑换充值</div>
+                            <div class="text-gray-500 text-xs">3月24日 12:00</div>
+                        </div>
+                    </div>
+                    <span class="text-emerald-400 font-bold text-sm">+300g</span>
+                </div>
+            </div>
+
+            <!-- 兑换规则说明 -->
+            <div class="mt-6 bg-slate-800 rounded-2xl p-4 mb-4">
+                <h4 class="text-gray-300 font-bold text-sm mb-3">兑换规则</h4>
+                <div class="space-y-2 text-xs text-gray-500">
+                    <div class="flex items-start gap-2">
+                        <span class="text-emerald-400 mt-0.5">1.</span>
+                        <span>1000碳积分（即1kg减排量）= 2元现金等值权益</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-emerald-400 mt-0.5">2.</span>
+                        <span>提现最低额度为100g，每次提现收取5g手续费</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-emerald-400 mt-0.5">3.</span>
+                        <span>提现申请审核后1-3个工作日到账微信零钱</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-emerald-400 mt-0.5">4.</span>
+                        <span>碳积分不可转让，不可折算现金以外的其他财产</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部 TabBar -->
+        <div class="absolute bottom-0 w-full h-20 bg-slate-900 border-t border-slate-700 px-6 flex justify-between items-center pb-4">
+            <a class="flex flex-col items-center text-gray-400" href="index.html">
+                <i class="ph-bold ph-house text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">首页</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="checkin.html">
+                <i class="ph-bold ph-calendar-check text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">打卡</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="social.html">
+                <i class="ph-bold ph-users-three text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">动态</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400 relative" href="mall.html">
+                <i class="ph-bold ph-shopping-bag text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">商城</span>
+                <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="profile.html">
+                <i class="ph-bold ph-user text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 提现弹窗 -->
+    <div id="withdraw-modal" class="modal-overlay hidden">
+        <div class="modal-content" style="background:#1e293b;">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-white font-bold text-lg">提现碳积分</h3>
+                <button class="modal-close w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center">
+                    <i class="ph-bold ph-x text-gray-400"></i>
+                </button>
+            </div>
+
+            <!-- 当前余额 -->
+            <div class="text-center mb-6">
+                <div class="text-gray-400 text-xs mb-1">可提现碳积分</div>
+                <div class="text-emerald-400 text-3xl font-black carbon-score">1,286<span class="text-lg font-normal">g</span></div>
+            </div>
+
+            <!-- 提现金额 -->
+            <div class="mb-4">
+                <div class="text-gray-400 text-xs mb-2">选择或输入提现金额</div>
+                <div class="flex items-center bg-slate-800 rounded-2xl px-4 py-3 mb-3">
+                    <input id="withdraw-amount" class="flex-1 bg-transparent text-white text-xl font-bold outline-none" value="100" type="number" min="100" step="50">
+                    <span class="text-gray-400 text-sm">g</span>
+                </div>
+                <!-- 快捷金额 -->
+                <div class="flex gap-2 mb-4">
+                    <button class="quick-withdraw flex-1 bg-slate-700 text-gray-300 text-xs py-2 rounded-xl font-medium" data-amount="100">100g</button>
+                    <button class="quick-withdraw flex-1 bg-slate-700 text-gray-300 text-xs py-2 rounded-xl font-medium" data-amount="200">200g</button>
+                    <button class="quick-withdraw flex-1 bg-emerald-500 text-white text-xs py-2 rounded-xl font-bold" data-amount="500">500g</button>
+                    <button class="quick-withdraw flex-1 bg-slate-700 text-gray-300 text-xs py-2 rounded-xl font-medium" data-amount="1000">1000g</button>
+                </div>
+                <!-- 预计到账 -->
+                <div class="bg-slate-800/50 rounded-xl px-4 py-3 flex items-center justify-between">
+                    <span class="text-gray-400 text-xs">预计到账</span>
+                    <span class="text-emerald-400 text-sm font-bold" id="withdraw-actual">约 0.20 元</span>
+                </div>
+            </div>
+
+            <!-- 提现说明 -->
+            <div class="text-xs text-gray-500 mb-4 space-y-1">
+                <p>• 提现最低额度：100g</p>
+                <p>• 每笔提现收取 5g 手续费</p>
+                <p>• 1-3个工作日到账微信零钱</p>
+            </div>
+
+            <!-- 确认按钮 -->
+            <button id="confirm-withdraw" class="w-full bg-emerald-500 text-white font-bold py-3 rounded-2xl text-sm">
+                确认提现
+            </button>
+        </div>
+    </div>
+
+    <script src="js/mock-data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        (function() {
+            // 从AppState读取碳积分余额
+            var STORAGE_KEY = 'carbon_user_state';
+            var AppState = {};
+            try {
+                var saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) AppState = JSON.parse(saved);
+            } catch(e) {}
+
+            var balance = AppState.carbonScore || 1286;
+            document.getElementById('wallet-balance').textContent = balance.toLocaleString();
+
+            // 更新预计到账金额
+            function updateActualAmount(amount) {
+                var actual = Math.max(0, parseInt(amount, 10) - 5) / 500;
+                var actualEl = document.getElementById('withdraw-actual');
+                if (actualEl) actualEl.textContent = '约 ' + actual.toFixed(2) + ' 元';
+            }
+
+            // 提现弹窗
+            var withdrawBtn = document.getElementById('withdraw-btn');
+            var withdrawModal = document.getElementById('withdraw-modal');
+            var amountInput = document.getElementById('withdraw-amount');
+
+            if (withdrawBtn && withdrawModal) {
+                withdrawBtn.addEventListener('click', function() {
+                    withdrawModal.classList.remove('hidden');
+                    updateActualAmount(amountInput.value);
+                });
+
+                withdrawModal.addEventListener('click', function(e) {
+                    if (e.target === withdrawModal || e.target.closest('.modal-close')) {
+                        withdrawModal.classList.add('hidden');
+                    }
+                });
+
+                amountInput.addEventListener('input', function() {
+                    updateActualAmount(this.value);
+                });
+
+                // 快捷金额按钮
+                document.querySelectorAll('.quick-withdraw').forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.quick-withdraw').forEach(function(b) {
+                            b.classList.remove('bg-emerald-500', 'text-white');
+                            b.classList.add('bg-slate-700', 'text-gray-300');
+                        });
+                        this.classList.remove('bg-slate-700', 'text-gray-300');
+                        this.classList.add('bg-emerald-500', 'text-white');
+                        amountInput.value = this.dataset.amount;
+                        updateActualAmount(this.dataset.amount);
+                    });
+                });
+
+                // 确认提现
+                document.getElementById('confirm-withdraw').addEventListener('click', function() {
+                    var amount = parseInt(amountInput.value, 10) || 0;
+                    if (amount < 100) {
+                        showToast('提现最低额度为 100g');
+                        return;
+                    }
+                    if (amount > balance) {
+                        showToast('碳积分余额不足');
+                        return;
+                    }
+
+                    // 扣除积分
+                    AppState.carbonScore -= amount;
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(AppState));
+
+                    // 更新显示
+                    document.querySelectorAll('.carbon-score').forEach(function(el) {
+                        if (el.id !== 'wallet-balance') {
+                            el.textContent = AppState.carbonScore.toLocaleString();
+                        }
+                    });
+                    document.getElementById('wallet-balance').textContent = AppState.carbonScore.toLocaleString();
+
+                    withdrawModal.classList.add('hidden');
+                    showToast('提现申请已提交，1-3个工作日到账');
+                });
+            }
+
+            // 充值弹窗（提示）
+            var rechargeBtn = document.getElementById('recharge-btn');
+            if (rechargeBtn) {
+                rechargeBtn.addEventListener('click', function() {
+                    showModal('积分充值', '<p class="text-gray-600 text-sm text-center mb-2">积分充值需通过完成低碳任务获取。</p><p class="text-gray-600 text-sm text-center">请前往打卡页面完成任务赚取更多碳积分！</p>', [
+                        '<a href="checkin.html" class="flex-1 bg-emerald-500 text-white py-2 rounded-xl font-medium text-center modal-close">去打卡</a>',
+                        '<button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded-xl font-medium modal-close">知道了</button>'
+                    ]);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

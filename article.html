@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>低碳科普 - 碳路者·青碳行</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { background: #e2e8f0; }
+    </style>
+</head>
+<body data-page="article">
+    <div class="phone-container">
+        <!-- 顶部状态栏 -->
+        <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
+            <div class="text-gray-400 text-sm">2026年3月29日</div>
+            <div class="flex items-center gap-1">
+                <i class="ph-bold ph-cell-signal-full text-sm text-gray-600"></i>
+                <i class="ph-bold ph-wifi-high text-sm text-gray-600"></i>
+                <i class="ph-bold ph-battery-full text-sm text-gray-600"></i>
+            </div>
+        </div>
+
+        <!-- 页面头部 -->
+        <div class="bg-white px-4 pt-4 pb-3 sticky top-0 z-10">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-gray-600">
+                    <i class="ph-bold ph-arrow-left text-xl"></i>
+                </a>
+                <span class="text-gray-800 font-bold text-lg">低碳科普</span>
+                <div class="flex items-center gap-3">
+                    <button id="share-btn" class="text-emerald-600">
+                        <i class="ph-bold ph-share-network text-xl"></i>
+                    </button>
+                    <button id="like-btn" class="text-gray-400">
+                        <i class="ph-bold ph-heart text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 文章内容 -->
+        <div class="scrollable-content pb-24">
+            <!-- 文章封面 -->
+            <div class="relative">
+                <img id="article-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg" alt="文章封面" class="w-full h-56 object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                    <span id="article-category" class="bg-emerald-500 text-white text-[9px] px-2 py-0.5 rounded-full font-bold">科普 · 环境</span>
+                </div>
+            </div>
+
+            <!-- 文章正文 -->
+            <div class="px-4 py-6">
+                <h1 id="article-title" class="text-xl font-bold text-gray-800 leading-relaxed mb-4">
+                    为什么少喝一瓶瓶装水能减少 80g 碳排放？
+                </h1>
+
+                <!-- 作者信息 -->
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
+                    <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/dcd31a5496fe4151ba6851123f2f3cfa.jpg" alt="作者头像" class="w-10 h-10 rounded-full object-cover">
+                    <div class="flex-1">
+                        <div class="text-gray-800 text-sm font-medium">贵州大学碳研究组</div>
+                        <div class="text-gray-400 text-xs">2026-03-28 · 1,286 阅读</div>
+                    </div>
+                    <button class="bg-emerald-50 text-emerald-600 text-xs px-3 py-1.5 rounded-full font-bold">
+                        +关注
+                    </button>
+                </div>
+
+                <!-- 正文 -->
+                <div id="article-content" class="text-gray-600 text-sm leading-7 space-y-4">
+                    <p>瓶装水的生产和运输过程中会产生大量碳排放。每生产1升瓶装水，平均产生约82.3克的二氧化碳（CO₂）。这个数字看似很小，但如果一个大学生每天喝一瓶550毫升的瓶装水，一年的碳排放量就达到约30千克。</p>
+
+                    <p>而使用可重复使用的水杯，效果则大不相同。一个不锈钢水杯的碳足迹约为10千克CO₂，但它的使用寿命通常在5年以上。这意味着，用水杯替代瓶装水，每年的碳排放量仅为2千克左右，比使用瓶装水减少约93%。</p>
+
+                    <h3 class="text-gray-800 font-bold text-base mt-4">具体数据对比</h3>
+                    <div class="bg-gray-50 rounded-2xl p-4 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 text-sm">每日瓶装水（550ml）</span>
+                            <span class="text-red-500 text-sm font-bold">约 82g CO₂</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 text-sm">使用水杯（每日装水）</span>
+                            <span class="text-emerald-600 text-sm font-bold">约 5g CO₂</span>
+                        </div>
+                        <div class="border-t border-gray-200 pt-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 text-sm font-bold">每天减少</span>
+                                <span class="text-emerald-600 text-base font-black">约 77g CO₂</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-gray-800 font-bold text-base mt-4">如何开始减碳行动</h3>
+                    <p>1. <strong>购买一个可重复使用的水杯</strong>：选择不锈钢或玻璃材质，耐用且环保。</p>
+                    <p>2. <strong>随身携带</strong>：将水杯放在书包侧袋，养成出门带水的习惯。</p>
+                    <p>3. <strong>在学校饮水点接水</strong>：多数高校教学楼和图书馆都有直饮水设备。</p>
+                    <p>4. <strong>记录减碳量</strong>：在「碳路者·青碳行」平台记录每日饮水减碳行为，获得碳积分奖励！</p>
+
+                    <div class="bg-emerald-50 rounded-2xl p-4 mt-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="ph-bold ph-lightbulb text-emerald-600"></i>
+                            <span class="text-emerald-800 font-bold text-sm">减碳小贴士</span>
+                        </div>
+                        <p class="text-emerald-700 text-xs leading-relaxed">用保温杯接热水不仅环保，还能省去买饮料的钱，一举两得！同时，多喝温水对身体健康也大有裨益。</p>
+                    </div>
+
+                    <p class="pt-4">低碳生活并不需要做出巨大的牺牲，而是从每一个小习惯开始。少喝一瓶瓶装水，不仅是在保护环境，也是在为自己和后代创造更美好的生活空间。</p>
+                </div>
+
+                <!-- 碳积分奖励提示 -->
+                <div class="mt-6 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-4 text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                            <i class="ph-bold ph-coin-vertical text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm">阅读本文可获得碳积分奖励</div>
+                            <div class="text-emerald-100 text-xs mt-1">阅读完成并分享，即可获得 <span class="text-white font-bold">+5g</span> 碳积分</div>
+                        </div>
+                        <button id="claim-article-reward" class="bg-white text-emerald-600 text-xs font-bold px-3 py-1.5 rounded-full">
+                            领取
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 相关推荐 -->
+                <div class="mt-8">
+                    <h3 class="text-gray-800 font-bold text-base mb-4">相关推荐</h3>
+                    <div class="space-y-3">
+                        <div class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm cursor-pointer article-related">
+                            <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg" alt="相关文章" class="w-16 h-16 rounded-xl object-cover">
+                            <div class="ml-3 flex flex-col justify-between">
+                                <h4 class="text-sm font-bold text-gray-800 line-clamp-2">宿舍节能挑战：每月省电 20% 的实操指南</h4>
+                                <div class="text-[10px] text-gray-400">科普 · 环境</div>
+                            </div>
+                        </div>
+                        <div class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm cursor-pointer article-related">
+                            <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg" alt="相关文章" class="w-16 h-16 rounded-xl object-cover">
+                            <div class="ml-3 flex flex-col justify-between">
+                                <h4 class="text-sm font-bold text-gray-800 line-clamp-2">校园低碳出行指南：地铁 vs 公交 vs 步行</h4>
+                                <div class="text-[10px] text-gray-400">出行 · 节能</div>
+                            </div>
+                        </div>
+                        <div class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm cursor-pointer article-related">
+                            <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg" alt="相关文章" class="w-16 h-16 rounded-xl object-cover">
+                            <div class="ml-3 flex flex-col justify-between">
+                                <h4 class="text-sm font-bold text-gray-800 line-clamp-2">旧衣回收：如何让闲置衣物焕发新生</h4>
+                                <div class="text-[10px] text-gray-400">生活 · 环保</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部 TabBar -->
+        <div class="absolute bottom-0 w-full h-20 bg-white border-t border-gray-100 px-6 flex justify-between items-center pb-4">
+            <a class="flex flex-col items-center text-gray-400" href="index.html">
+                <i class="ph-bold ph-house text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">首页</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="checkin.html">
+                <i class="ph-bold ph-calendar-check text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">打卡</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="social.html">
+                <i class="ph-bold ph-users-three text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">动态</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400 relative" href="mall.html">
+                <i class="ph-bold ph-shopping-bag text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">商城</span>
+                <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="profile.html">
+                <i class="ph-bold ph-user text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="js/mock-data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        (function() {
+            var articleRewarded = false;
+            // 领取阅读奖励
+            var claimBtn = document.getElementById('claim-article-reward');
+            if (claimBtn) {
+                claimBtn.addEventListener('click', function() {
+                    if (articleRewarded) {
+                        showToast('已领取过该奖励');
+                        return;
+                    }
+                    articleRewarded = true;
+                    this.textContent = '已领取';
+                    this.disabled = true;
+                    this.classList.remove('bg-white', 'text-emerald-600');
+                    this.classList.add('bg-emerald-200', 'text-emerald-500');
+
+                    var STORAGE_KEY = 'carbon_user_state';
+                    var AppState = {};
+                    try {
+                        var saved = localStorage.getItem(STORAGE_KEY);
+                        if (saved) AppState = JSON.parse(saved);
+                    } catch(e) {}
+                    AppState.carbonScore = (AppState.carbonScore || 1286) + 5;
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(AppState));
+                    document.querySelectorAll('.carbon-score').forEach(function(el) {
+                        el.textContent = AppState.carbonScore.toLocaleString();
+                    });
+                    showToast('获得 +5g 碳积分！');
+                });
+            }
+            // 点赞
+            var likeBtn = document.getElementById('like-btn');
+            if (likeBtn) {
+                likeBtn.addEventListener('click', function() {
+                    var icon = this.querySelector('i');
+                    if (icon.classList.contains('ph-heart')) {
+                        icon.classList.remove('ph-heart', 'text-gray-400');
+                        icon.classList.add('ph-heart-fill', 'text-red-500');
+                        showToast('感谢您的点赞！');
+                    } else {
+                        icon.classList.remove('ph-heart-fill', 'text-red-500');
+                        icon.classList.add('ph-heart', 'text-gray-400');
+                    }
+                });
+            }
+            // 分享
+            var shareBtn = document.getElementById('share-btn');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', function() {
+                    showToast('分享链接已复制到剪贴板');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

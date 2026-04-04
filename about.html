@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 碳路者·青碳行</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { background: #e2e8f0; }
+    </style>
+</head>
+<body data-page="about">
+    <div class="phone-container">
+        <!-- 顶部状态栏 -->
+        <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
+            <div class="text-gray-400 text-sm">2026年3月29日</div>
+            <div class="flex items-center gap-1">
+                <i class="ph-bold ph-cell-signal-full text-sm text-gray-600"></i>
+                <i class="ph-bold ph-wifi-high text-sm text-gray-600"></i>
+                <i class="ph-bold ph-battery-full text-sm text-gray-600"></i>
+            </div>
+        </div>
+
+        <!-- 页面头部 -->
+        <div class="bg-white px-4 pt-4 pb-3">
+            <div class="flex items-center justify-between">
+                <a href="profile.html" class="text-gray-600">
+                    <i class="ph-bold ph-arrow-left text-xl"></i>
+                </a>
+                <span class="text-gray-800 font-bold text-lg">关于我们</span>
+                <div class="w-6"></div>
+            </div>
+        </div>
+
+        <!-- 可滚动内容区 -->
+        <div class="h-[640px] overflow-y-auto pb-24">
+            <!-- Logo区 -->
+            <div class="mx-4 mt-4 text-center">
+                <div class="w-20 h-20 bg-emerald-500 rounded-3xl flex items-center justify-center shadow-lg mx-auto">
+                    <i class="ph-bold ph-leaf text-white text-4xl"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800 mt-4 italic">碳路者 · 青碳行</h1>
+                <p class="text-gray-400 text-xs mt-1">Green Campus, Low Carbon Life</p>
+                <div class="inline-block bg-emerald-50 text-emerald-600 text-[10px] font-bold px-3 py-1 rounded-full mt-3">
+                    V1.0.0 测试版
+                </div>
+            </div>
+
+            <!-- 项目介绍 -->
+            <div class="mx-4 mt-6 bg-white rounded-2xl p-5 shadow-sm">
+                <h3 class="text-gray-800 font-bold text-base mb-3">项目介绍</h3>
+                <p class="text-gray-600 text-sm leading-7">
+                    「碳路者·青碳行」是由贵州大学经济学院学子发起，联合剑河省新盛林业投资开发有限责任公司、贵州大学西部现代化研究院共同打造的高校碳普惠平台。
+                </p>
+                <p class="text-gray-600 text-sm leading-7 mt-3">
+                    项目以大学生群体为核心切入点，通过数字化手段记录绿色出行、低碳生活等行为，按照科学方法学核算碳减排量并生成碳积分，积分可通过平台兑换现金、充值权益，最终由平台聚合零散减排量进入碳市场交易，形成"行为记录—减排量化—价值转化"的完整闭环。
+                </p>
+            </div>
+
+            <!-- 核心数据 -->
+            <div class="mx-4 mt-4">
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="bg-white rounded-2xl p-4 text-center shadow-sm">
+                        <div class="text-2xl font-black text-emerald-600">20万+</div>
+                        <div class="text-gray-400 text-[10px] mt-1">注册用户</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 text-center shadow-sm">
+                        <div class="text-2xl font-black text-emerald-600">5000t</div>
+                        <div class="text-gray-400 text-[10px] mt-1">累计减排</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 text-center shadow-sm">
+                        <div class="text-2xl font-black text-emerald-600">5所</div>
+                        <div class="text-gray-400 text-[10px] mt-1">试点高校</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 合作单位 -->
+            <div class="mx-4 mt-4 bg-white rounded-2xl p-5 shadow-sm">
+                <h3 class="text-gray-800 font-bold text-base mb-4">指导单位</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-buildings text-emerald-600 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-gray-800 text-sm font-medium">贵州大学经济学院</div>
+                            <div class="text-gray-400 text-xs">项目发起与学术指导</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-tree text-blue-600 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-gray-800 text-sm font-medium">剑河省新盛林业投资开发有限责任公司</div>
+                            <div class="text-gray-400 text-xs">林业碳汇资源与碳交易合作</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-chart-line-up text-purple-600 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-gray-800 text-sm font-medium">贵州大学西部现代化研究院</div>
+                            <div class="text-gray-400 text-xs">政策研究与区域推广支持</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 核心技术 -->
+            <div class="mx-4 mt-4 bg-white rounded-2xl p-5 shadow-sm">
+                <h3 class="text-gray-800 font-bold text-base mb-4">核心技术</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-gray-50 rounded-xl p-3 text-center">
+                        <i class="ph-bold ph-database text-2xl text-emerald-500 mb-2"></i>
+                        <div class="text-gray-800 text-xs font-medium">碳减排核算方法学</div>
+                        <div class="text-gray-400 text-[9px] mt-1">参照国家碳普惠标准</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-3 text-center">
+                        <i class="ph-bold ph-link-simple text-2xl text-blue-500 mb-2"></i>
+                        <div class="text-gray-800 text-xs font-medium">区块链存证</div>
+                        <div class="text-gray-400 text-[9px] mt-1">数据不可篡改</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-3 text-center">
+                        <i class="ph-bold ph-shield-check text-2xl text-purple-500 mb-2"></i>
+                        <div class="text-gray-800 text-xs font-medium">隐私计算</div>
+                        <div class="text-gray-400 text-[9px] mt-1">数据可用不可见</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-3 text-center">
+                        <i class="ph-bold ph-arrows-clockwise text-2xl text-orange-500 mb-2"></i>
+                        <div class="text-gray-800 text-xs font-medium">多源数据融合</div>
+                        <div class="text-gray-400 text-[9px] mt-1">智能穿戴+出行数据</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 资质荣誉 -->
+            <div class="mx-4 mt-4 bg-white rounded-2xl p-5 shadow-sm">
+                <h3 class="text-gray-800 font-bold text-base mb-4">资质与荣誉</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-trophy text-yellow-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-gray-800 text-sm font-medium">贵州省高校碳普惠试点项目</div>
+                            <div class="text-gray-400 text-xs">贵州省生态环境厅 2026年</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-certificate text-emerald-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-gray-800 text-sm font-medium">第十一届中国国际"互联网+"大学生创新创业大赛</div>
+                            <div class="text-gray-400 text-xs">贵州赛区 校级选拔赛</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 隐私政策 -->
+            <div class="mx-4 mt-4 space-y-3 pb-4">
+                <div class="bg-white rounded-2xl p-4 shadow-sm flex items-center justify-between cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <i class="ph-bold ph-file-text text-gray-400"></i>
+                        <span class="text-gray-700 text-sm">用户服务协议</span>
+                    </div>
+                    <i class="ph-bold ph-caret-right text-gray-400"></i>
+                </div>
+                <div class="bg-white rounded-2xl p-4 shadow-sm flex items-center justify-between cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <i class="ph-bold ph-shield-check text-gray-400"></i>
+                        <span class="text-gray-700 text-sm">隐私保护政策</span>
+                    </div>
+                    <i class="ph-bold ph-caret-right text-gray-400"></i>
+                </div>
+                <div class="bg-white rounded-2xl p-4 shadow-sm flex items-center justify-between cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <i class="ph-bold ph-scales text-gray-400"></i>
+                        <span class="text-gray-700 text-sm">碳积分使用规则</span>
+                    </div>
+                    <i class="ph-bold ph-caret-right text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- 底部版权 -->
+            <div class="text-center pb-4 pt-2">
+                <p class="text-gray-400 text-[10px]">© 2026 碳路者·青碳行</p>
+                <p class="text-gray-300 text-[9px] mt-1">贵州大学经济学院 · All Rights Reserved</p>
+            </div>
+        </div>
+
+        <!-- 底部 TabBar -->
+        <div class="absolute bottom-0 w-full h-20 bg-white border-t border-gray-100 px-6 flex justify-between items-center pb-4">
+            <a class="flex flex-col items-center text-gray-400" href="index.html">
+                <i class="ph-bold ph-house text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">首页</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="checkin.html">
+                <i class="ph-bold ph-calendar-check text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">打卡</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="social.html">
+                <i class="ph-bold ph-users-three text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">动态</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400 relative" href="mall.html">
+                <i class="ph-bold ph-shopping-bag text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">商城</span>
+                <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
+            <a class="flex flex-col items-center tab-active" href="profile.html">
+                <i class="ph-bold ph-user text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="js/mock-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打卡记录 - 碳路者·青碳行</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { background: #e2e8f0; }
+    </style>
+</head>
+<body data-page="verification">
+    <div class="phone-container">
+        <!-- 顶部状态栏 -->
+        <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
+            <div class="text-gray-400 text-sm">2026年3月29日</div>
+            <div class="flex items-center gap-1">
+                <i class="ph-bold ph-cell-signal-full text-sm text-gray-600"></i>
+                <i class="ph-bold ph-wifi-high text-sm text-gray-600"></i>
+                <i class="ph-bold ph-battery-full text-sm text-gray-600"></i>
+            </div>
+        </div>
+
+        <!-- 页面头部 -->
+        <div class="bg-white px-4 pt-4 pb-3">
+            <div class="flex items-center justify-between">
+                <a href="profile.html" class="text-gray-600"><i class="ph-bold ph-arrow-left text-xl"></i></a>
+                <span class="text-gray-800 font-bold text-lg">打卡记录</span>
+                <div class="w-6"></div>
+            </div>
+        </div>
+
+        <!-- 月份Tab -->
+        <div class="px-4 pb-3 bg-white border-b border-gray-100">
+            <div class="flex items-center gap-4">
+                <button class="month-tab active text-emerald-600 font-medium text-sm pb-2 border-b-2 border-emerald-500" data-month="3">3月</button>
+                <button class="month-tab text-gray-400 font-medium text-sm pb-2 border-b-2 border-transparent" data-month="2">2月</button>
+                <button class="month-tab text-gray-400 font-medium text-sm pb-2 border-b-2 border-transparent" data-month="1">1月</button>
+            </div>
+        </div>
+
+        <!-- 可滚动内容区 -->
+        <div class="h-[640px] overflow-y-auto pb-24 px-4 pt-4">
+            <!-- 月度总结 -->
+            <div class="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-5 text-white mb-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-emerald-100 text-xs mb-1">本月累计</div>
+                        <div class="text-3xl font-black">286g</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-emerald-100 text-xs">打卡天数</div>
+                        <div class="text-xl font-bold">22天</div>
+                        <div class="text-emerald-100 text-[10px]">共28次打卡</div>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center gap-2">
+                    <span class="bg-white/20 text-white text-[10px] px-2 py-1 rounded-full">击败全校 76% 用户</span>
+                    <span class="bg-white/20 text-white text-[10px] px-2 py-1 rounded-full">本月全勤</span>
+                </div>
+            </div>
+
+            <!-- 日历打卡热力图 -->
+            <div class="bg-white rounded-2xl p-4 shadow-sm mb-6">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-gray-800 font-bold text-sm">3月打卡日历</span>
+                    <div class="flex items-center gap-3 text-[10px] text-gray-400">
+                        <span class="flex items-center gap-1"><div class="w-3 h-3 bg-emerald-400 rounded-sm"></div> 全部</span>
+                        <span class="flex items-center gap-1"><div class="w-3 h-3 bg-emerald-200 rounded-sm"></div> 部分</span>
+                        <span class="flex items-center gap-1"><div class="w-3 h-3 bg-gray-100 rounded-sm"></div> 未打卡</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center">
+                    <div class="text-[9px] text-gray-400 py-1">一</div>
+                    <div class="text-[9px] text-gray-400 py-1">二</div>
+                    <div class="text-[9px] text-gray-400 py-1">三</div>
+                    <div class="text-[9px] text-gray-400 py-1">四</div>
+                    <div class="text-[9px] text-gray-400 py-1">五</div>
+                    <div class="text-[9px] text-gray-400 py-1">六</div>
+                    <div class="text-[9px] text-gray-400 py-1">日</div>
+                    <!-- 空格子 -->
+                    <div class="h-7"></div><div class="h-7"></div><div class="h-7"></div><div class="h-7"></div><div class="h-7"></div>
+                    <!-- 日历格子 -->
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">1</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">2</div>
+                    <div class="h-7 bg-emerald-200 rounded-sm flex items-center justify-center text-[9px] text-emerald-700 font-bold">3</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">4</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">5</div>
+                    <div class="h-7 bg-emerald-200 rounded-sm flex items-center justify-center text-[9px] text-emerald-700 font-bold">6</div>
+                    <div class="h-7 bg-emerald-200 rounded-sm flex items-center justify-center text-[9px] text-emerald-700 font-bold">7</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">8</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">9</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">10</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">11</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">12</div>
+                    <div class="h-7 bg-emerald-200 rounded-sm flex items-center justify-center text-[9px] text-emerald-700 font-bold">13</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">14</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">15</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">16</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">17</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">18</div>
+                    <div class="h-7 bg-emerald-200 rounded-sm flex items-center justify-center text-[9px] text-emerald-700 font-bold">19</div>
+                    <div class="h-7 bg-gray-100 rounded-sm flex items-center justify-center text-[9px] text-gray-300">20</div>
+                    <div class="h-7 bg-gray-100 rounded-sm flex items-center justify-center text-[9px] text-gray-300">21</div>
+                    <div class="h-7 bg-gray-100 rounded-sm flex items-center justify-center text-[9px] text-gray-300">22</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">23</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">24</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">25</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">26</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">27</div>
+                    <div class="h-7 bg-emerald-200 rounded-sm flex items-center justify-center text-[9px] text-emerald-700 font-bold">28</div>
+                    <div class="h-7 bg-emerald-400 rounded-sm flex items-center justify-center text-[9px] text-white font-bold">29</div>
+                    <div class="h-7 bg-gray-100 rounded-sm flex items-center justify-center text-[9px] text-gray-300">30</div>
+                    <div class="h-7 bg-gray-100 rounded-sm flex items-center justify-center text-[9px] text-gray-300">31</div>
+                </div>
+            </div>
+
+            <!-- 打卡明细 -->
+            <div>
+                <h3 class="text-gray-800 font-bold text-base mb-3">打卡明细</h3>
+                <div class="space-y-3">
+                    <!-- 今天 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-gray-800 font-bold text-sm">今天</span>
+                            <span class="text-emerald-600 text-xs bg-emerald-50 px-2 py-0.5 rounded-full font-bold">已完成</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between py-2 border-b border-gray-50">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-orange-50 rounded-lg flex items-center justify-center">
+                                        <i class="ph-bold ph-bowl-food text-orange-500"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-800 text-sm">减免外卖餐具</div>
+                                        <div class="text-gray-400 text-[10px]">今天 10:32</div>
+                                    </div>
+                                </div>
+                                <span class="text-emerald-600 font-bold text-sm">+15g</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2 border-b border-gray-50">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
+                                        <i class="ph-bold ph-bus text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-800 text-sm">校园巴士出行</div>
+                                        <div class="text-gray-400 text-[10px]">今天 08:15</div>
+                                    </div>
+                                </div>
+                                <span class="text-emerald-600 font-bold text-sm">+8g</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-purple-50 rounded-lg flex items-center justify-center">
+                                        <i class="ph-bold ph-package text-purple-500"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-800 text-sm">旧物循环捐赠</div>
+                                        <div class="text-gray-400 text-[10px]">今天 15:40</div>
+                                    </div>
+                                </div>
+                                <span class="text-emerald-600 font-bold text-sm">+20g</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 bg-emerald-50 rounded-xl p-3 text-center">
+                            <span class="text-emerald-700 text-sm font-bold">今日合计：+43g</span>
+                        </div>
+                    </div>
+
+                    <!-- 昨天 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-gray-800 font-bold text-sm">昨天</span>
+                            <span class="text-emerald-600 text-xs bg-emerald-50 px-2 py-0.5 rounded-full font-bold">已完成</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between py-2 border-b border-gray-50">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-yellow-50 rounded-lg flex items-center justify-center">
+                                        <i class="ph-bold ph-drop text-yellow-500"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-800 text-sm">光盘行动</div>
+                                        <div class="text-gray-400 text-[10px]">昨天 12:30</div>
+                                    </div>
+                                </div>
+                                <span class="text-emerald-600 font-bold text-sm">+10g</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-teal-50 rounded-lg flex items-center justify-center">
+                                        <i class="ph-bold ph-recycle text-teal-500"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-800 text-sm">垃圾分类</div>
+                                        <div class="text-gray-400 text-[10px]">昨天 20:00</div>
+                                    </div>
+                                </div>
+                                <span class="text-emerald-600 font-bold text-sm">+5g</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 bg-emerald-50 rounded-xl p-3 text-center">
+                            <span class="text-emerald-700 text-sm font-bold">昨日合计：+15g</span>
+                        </div>
+                    </div>
+
+                    <!-- 3月28日 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-gray-800 font-bold text-sm">3月28日</span>
+                            <span class="text-emerald-600 text-xs bg-emerald-50 px-2 py-0.5 rounded-full font-bold">已完成</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between py-2 border-b border-gray-50">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-emerald-50 rounded-lg flex items-center justify-center">
+                                        <i class="ph-bold ph-bicycle text-emerald-500"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-800 text-sm">校园骑行</div>
+                                        <div class="text-gray-400 text-[10px]">3月28日 07:30</div>
+                                    </div>
+                                </div>
+                                <span class="text-emerald-600 font-bold text-sm">+20g</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-orange-50 rounded-lg flex items-center justify-center">
+                                        <i class="ph-bold ph-bowl-food text-orange-500"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-800 text-sm">减免外卖餐具</div>
+                                        <div class="text-gray-400 text-[10px]">3月28日 12:00</div>
+                                    </div>
+                                </div>
+                                <span class="text-emerald-600 font-bold text-sm">+15g</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 bg-emerald-50 rounded-xl p-3 text-center">
+                            <span class="text-emerald-700 text-sm font-bold">当日合计：+35g</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部 TabBar -->
+        <div class="absolute bottom-0 w-full h-20 bg-white border-t border-gray-100 px-6 flex justify-between items-center pb-4">
+            <a class="flex flex-col items-center text-gray-400" href="index.html">
+                <i class="ph-bold ph-house text-2xl"></i><span class="text-[10px] mt-1 font-medium">首页</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="checkin.html">
+                <i class="ph-bold ph-calendar-check text-2xl"></i><span class="text-[10px] mt-1 font-medium">打卡</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="social.html">
+                <i class="ph-bold ph-users-three text-2xl"></i><span class="text-[10px] mt-1 font-medium">动态</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400 relative" href="mall.html">
+                <i class="ph-bold ph-shopping-bag text-2xl"></i><span class="text-[10px] mt-1 font-medium">商城</span>
+                <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
+            <a class="flex flex-col items-center tab-active" href="profile.html">
+                <i class="ph-bold ph-user text-2xl"></i><span class="text-[10px] mt-1 font-medium">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="js/mock-data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        (function() {
+            document.querySelectorAll('.month-tab').forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.month-tab').forEach(function(t) {
+                        t.classList.remove('active','text-emerald-600','border-emerald-500');
+                        t.classList.add('text-gray-400','border-transparent');
+                    });
+                    this.classList.add('active','text-emerald-600','border-emerald-500');
+                    this.classList.remove('text-gray-400','border-transparent');
+                    showToast('切换到 ' + this.textContent + ' 记录');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

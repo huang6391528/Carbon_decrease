@@ -50,8 +50,8 @@
                 <p class="text-xs opacity-80">2026年3月29日 · 晴</p>
             </div>
             <div class="flex space-x-3">
-                <i class="ph-bold ph-bell text-2xl cursor-pointer"></i>
-                <i class="ph-bold ph-qr-code text-2xl cursor-pointer"></i>
+                <a href="announcements.html"><i class="ph-bold ph-bell text-2xl cursor-pointer"></i></a>
+                <a href="qrcode.html"><i class="ph-bold ph-qr-code text-2xl cursor-pointer"></i></a>
             </div>
         </div>
 
@@ -74,17 +74,19 @@
                     <div class="text-2xl font-bold text-emerald-900 carbon-score">1,286 <span class="text-sm font-normal">g</span></div>
                 </div>
                 <!-- 能量球 -->
-                <div class="energy-ball absolute top-12 left-20 bg-emerald-400/80 w-12 h-12 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-emerald-200" onclick="this.style.display='none'">
+                <div id="energy-container">
+                <div class="energy-ball absolute top-12 left-20 bg-emerald-400/80 w-12 h-12 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-emerald-200" data-id="1" data-amount="12" data-type="步行">
                     <span>+12g</span>
                     <span>步行</span>
                 </div>
-                <div class="energy-ball absolute top-24 right-12 bg-lime-400/80 w-14 h-14 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-lime-200" onclick="this.style.display='none'" style="animation-delay: 0.5s">
+                <div class="energy-ball absolute top-24 right-12 bg-lime-400/80 w-14 h-14 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-lime-200" data-id="2" data-amount="45" data-type="地铁" style="animation-delay: 0.5s">
                     <span>+45g</span>
                     <span>地铁</span>
                 </div>
-                <div class="energy-ball absolute bottom-20 left-10 bg-teal-400/80 w-10 h-10 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-teal-200" onclick="this.style.display='none'" style="animation-delay: 1.2s">
+                <div class="energy-ball absolute bottom-20 left-10 bg-teal-400/80 w-10 h-10 rounded-full flex flex-col items-center justify-center text-[10px] text-white cursor-pointer shadow-lg shadow-teal-200" data-id="3" data-amount="8" data-type="回收" style="animation-delay: 1.2s">
                     <span>+8g</span>
                     <span>回收</span>
+                </div>
                 </div>
                 <!-- 底部装饰 -->
                 <div class="absolute bottom-0 w-full h-24 flex items-end justify-center">
@@ -129,7 +131,7 @@
                     <span class="text-xs text-gray-400">查看更多 &gt;</span>
                 </div>
                 <div class="space-y-4">
-                    <div class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm cursor-pointer">
+                    <a href="article.html" class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm cursor-pointer article-item" data-id="1">
                         <img alt="Article" class="w-20 h-20 rounded-xl object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg"/>
                         <div class="ml-3 flex flex-col justify-between">
                             <h3 class="text-sm font-bold text-gray-800 line-clamp-2">为什么少喝一瓶瓶装水能减少 80g 碳排放？</h3>
@@ -140,8 +142,8 @@
                                 <span>科普 · 环境</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm cursor-pointer">
+                    </a>
+                    <a href="article.html" class="flex bg-white p-3 rounded-2xl border border-gray-100 shadow-sm cursor-pointer article-item" data-id="2">
                         <img alt="Article" class="w-20 h-20 rounded-xl object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-03-29/0aa1ef5670a94f649ed536b5c1596e70.jpg"/>
                         <div class="ml-3 flex flex-col justify-between">
                             <h3 class="text-sm font-bold text-gray-800 line-clamp-2">宿舍节能挑战：每月省电 20% 的实操指南</h3>
@@ -152,7 +154,7 @@
                                 <span>生活 · 节能</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -184,13 +186,6 @@
     </div>
 
     <script src="js/mock-data.js"></script>
-    <script>
-        var AppState = {
-            completedTasks: [2],
-            carbonScore: 1286,
-            cartItems: []
-        };
-    </script>
     <script src="js/app.js"></script>
 </body>
 </html>
