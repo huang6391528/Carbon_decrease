@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消息通知 - 碳路者·青碳行</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { background: #e2e8f0; }
+    </style>
+</head>
+<body data-page="announcements">
+    <div class="phone-container">
+        <!-- 顶部状态栏 -->
+        <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
+            <div class="text-gray-400 text-sm">2026年3月29日</div>
+            <div class="flex items-center gap-1">
+                <i class="ph-bold ph-cell-signal-full text-sm text-gray-600"></i>
+                <i class="ph-bold ph-wifi-high text-sm text-gray-600"></i>
+                <i class="ph-bold ph-battery-full text-sm text-gray-600"></i>
+            </div>
+        </div>
+
+        <!-- 页面头部 -->
+        <div class="bg-white px-4 pt-4 pb-3">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-gray-600">
+                    <i class="ph-bold ph-arrow-left text-xl"></i>
+                </a>
+                <span class="text-gray-800 font-bold text-lg">消息通知</span>
+                <button class="text-emerald-600 text-sm font-medium" id="mark-all-btn">全部已读</button>
+            </div>
+        </div>
+
+        <!-- 通知Tab -->
+        <div class="px-4 pb-3 bg-white border-b border-gray-100">
+            <div class="flex items-center gap-6">
+                <button class="notice-tab active text-emerald-600 font-medium text-sm pb-2 border-b-2 border-emerald-500" data-type="all">全部</button>
+                <button class="notice-tab text-gray-400 font-medium text-sm pb-2 border-b-2 border-transparent" data-type="system">系统</button>
+                <button class="notice-tab text-gray-400 font-medium text-sm pb-2 border-b-2 border-transparent" data-type="activity">活动</button>
+                <button class="notice-tab text-gray-400 font-medium text-sm pb-2 border-b-2 border-transparent" data-type="achievement">成就</button>
+            </div>
+        </div>
+
+        <!-- 通知列表 -->
+        <div class="h-[600px] overflow-y-auto pb-6">
+            <div id="notice-list" class="px-4 pt-4 space-y-3">
+                <!-- 系统通知：提现成功 -->
+                <div class="notice-item bg-white rounded-2xl p-4 shadow-sm cursor-pointer border-l-4 border-emerald-500" data-type="system">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-wallet text-emerald-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-gray-800 font-bold text-sm">提现到账通知</span>
+                                <span class="text-gray-400 text-[10px]">刚刚</span>
+                            </div>
+                            <p class="text-gray-500 text-xs leading-relaxed">您申请的 50g 碳积分提现已成功到账，请注意查收微信零钱。</p>
+                            <div class="mt-2 bg-emerald-50 rounded-lg px-3 py-2 flex items-center justify-between">
+                                <span class="text-emerald-700 text-xs">提现数量：50g</span>
+                                <span class="text-emerald-600 text-xs font-bold">+1.00元</span>
+                            </div>
+                        </div>
+                        <div class="w-2 h-2 bg-red-500 rounded-full flex-shrink-0 mt-1 unread-dot"></div>
+                    </div>
+                </div>
+
+                <!-- 活动通知：竞赛开始 -->
+                <div class="notice-item bg-white rounded-2xl p-4 shadow-sm cursor-pointer border-l-4 border-blue-500" data-type="activity">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-flag-banner text-blue-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-gray-800 font-bold text-sm">校园减碳PK赛开启！</span>
+                                <span class="text-gray-400 text-[10px]">2小时前</span>
+                            </div>
+                            <p class="text-gray-500 text-xs leading-relaxed">2026校园减碳PK赛正式开始，清华 VS 北大，谁能夺得桂冠？快来加入你的学校战队，为母校贡献碳积分吧！</p>
+                            <div class="mt-2 flex items-center gap-2">
+                                <span class="bg-blue-500 text-white text-[9px] px-2 py-0.5 rounded-full font-bold">进行中</span>
+                                <span class="text-blue-600 text-xs">参与即得 200g 积分</span>
+                            </div>
+                        </div>
+                        <div class="w-2 h-2 bg-red-500 rounded-full flex-shrink-0 mt-1 unread-dot"></div>
+                    </div>
+                </div>
+
+                <!-- 成就通知 -->
+                <div class="notice-item bg-white rounded-2xl p-4 shadow-sm cursor-pointer border-l-4 border-yellow-500" data-type="achievement">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-trophy text-yellow-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-gray-800 font-bold text-sm">恭喜获得新成就！</span>
+                                <span class="text-gray-400 text-[10px]">昨天</span>
+                            </div>
+                            <p class="text-gray-500 text-xs leading-relaxed">您已连续7天完成低碳打卡，解锁成就「低碳达人」！获得额外奖励 100g 碳积分，已自动存入您的账户。</p>
+                            <div class="mt-2 flex items-center gap-2">
+                                <span class="bg-yellow-100 text-yellow-700 text-[10px] px-2 py-1 rounded-lg flex items-center gap-1">
+                                    <i class="ph-bold ph-trophy"></i> 低碳达人
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 系统通知：打卡提醒 -->
+                <div class="notice-item bg-white rounded-2xl p-4 shadow-sm cursor-pointer" data-type="system">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-bell-ringing text-orange-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-gray-800 font-bold text-sm">今日打卡提醒</span>
+                                <span class="text-gray-400 text-[10px]">昨天</span>
+                            </div>
+                            <p class="text-gray-500 text-xs leading-relaxed">您今日还有 3 个低碳任务未完成，记得完成打卡获取碳积分哦！坚持打卡可获得连续奖励。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 系统通知：积分变动 -->
+                <div class="notice-item bg-white rounded-2xl p-4 shadow-sm cursor-pointer" data-type="system">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-coin-vertical text-emerald-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-gray-800 font-bold text-sm">碳积分到账通知</span>
+                                <span class="text-gray-400 text-[10px]">3天前</span>
+                            </div>
+                            <p class="text-gray-500 text-xs leading-relaxed">您在「校园巴士出行」中完成打卡，获得 8g 碳积分，当前碳积分余额 1,286g。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 活动通知：新品上架 -->
+                <div class="notice-item bg-white rounded-2xl p-4 shadow-sm cursor-pointer" data-type="activity">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="ph-bold ph-shopping-bag-open text-purple-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-gray-800 font-bold text-sm">新品上架：「青碳行」限定联名环保杯套</span>
+                                <span class="text-gray-400 text-[10px]">5天前</span>
+                            </div>
+                            <p class="text-gray-500 text-xs leading-relaxed">限量联名环保杯套正式上线，仅需 120g 碳积分即可兑换，售完即止！</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 空状态 -->
+                <div id="notice-empty" class="hidden text-center py-16">
+                    <div class="w-20 h-20 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="ph-bold ph-bell-slash text-3xl text-gray-300"></i>
+                    </div>
+                    <p class="text-gray-500 text-sm">暂无消息通知</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部 TabBar -->
+        <div class="absolute bottom-0 w-full h-20 bg-white border-t border-gray-100 px-6 flex justify-between items-center pb-4">
+            <a class="flex flex-col items-center text-gray-400" href="index.html">
+                <i class="ph-bold ph-house text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">首页</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="checkin.html">
+                <i class="ph-bold ph-calendar-check text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">打卡</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="social.html">
+                <i class="ph-bold ph-users-three text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">动态</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400 relative" href="mall.html">
+                <i class="ph-bold ph-shopping-bag text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">商城</span>
+                <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="profile.html">
+                <i class="ph-bold ph-user text-2xl"></i>
+                <span class="text-[10px] mt-1 font-medium">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="js/mock-data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        (function() {
+            // 通知Tab切换
+            document.querySelectorAll('.notice-tab').forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.notice-tab').forEach(function(t) {
+                        t.classList.remove('active', 'text-emerald-600', 'border-emerald-500');
+                        t.classList.add('text-gray-400', 'border-transparent');
+                    });
+                    this.classList.add('active', 'text-emerald-600', 'border-emerald-500');
+                    this.classList.remove('text-gray-400', 'border-transparent');
+
+                    var filterType = this.dataset.type;
+                    var items = document.querySelectorAll('.notice-item');
+                    var count = 0;
+
+                    items.forEach(function(item) {
+                        if (filterType === 'all' || item.dataset.type === filterType) {
+                            item.style.display = '';
+                            count++;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+
+                    var emptyEl = document.getElementById('notice-empty');
+                    if (emptyEl) {
+                        emptyEl.classList.toggle('hidden', count > 0);
+                    }
+                });
+            });
+
+            // 点击通知标记已读
+            document.querySelectorAll('.notice-item').forEach(function(item) {
+                item.addEventListener('click', function() {
+                    var dot = this.querySelector('.unread-dot');
+                    if (dot) {
+                        dot.remove();
+                    }
+                });
+            });
+
+            // 全部已读
+            var markAllBtn = document.getElementById('mark-all-btn');
+            if (markAllBtn) {
+                markAllBtn.addEventListener('click', function() {
+                    document.querySelectorAll('.unread-dot').forEach(function(dot) {
+                        dot.remove();
+                    });
+                    if (typeof showToast !== 'undefined') {
+                        showToast('已全部标记为已读');
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

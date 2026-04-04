@@ -33,6 +33,7 @@
 
         <!-- 可滚动内容区 -->
         <div class="scrollable-content">
+            <span class="carbon-score hidden" aria-hidden="true">1,286</span>
             <!-- 用户信息头部 -->
             <div class="bg-gradient-to-br from-emerald-500 to-teal-600 px-4 pt-4 pb-6">
                 <div class="flex items-center justify-between mb-4">
@@ -62,78 +63,66 @@
                 </div>
             </div>
 
-            <!-- 数据统计卡片 -->
+            <!-- 数据统计卡片（三卡横排：总减排 / 已种树 / 减排成就） -->
             <div class="px-4 -mt-4">
-                <div class="bg-white rounded-2xl p-4 shadow-sm">
-                    <div class="grid grid-cols-4 gap-2 text-center">
-                        <div>
-                            <div class="text-xl font-bold text-gray-800 carbon-score">1,286</div>
-                            <div class="text-gray-400 text-xs mt-1">碳积分</div>
-                        </div>
-                        <div>
-                            <div class="text-xl font-bold text-gray-800 total-carbon">24.5</div>
-                            <div class="text-gray-400 text-xs mt-1">总减碳(kg)</div>
-                        </div>
-                        <div>
-                            <div class="text-xl font-bold text-gray-800">3</div>
-                            <div class="text-gray-400 text-xs mt-1">种树(棵)</div>
-                        </div>
-                        <div>
-                            <div class="text-xl font-bold text-gray-800">12</div>
-                            <div class="text-gray-400 text-xs mt-1">成就</div>
-                        </div>
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="bg-emerald-50 rounded-2xl p-4 text-center shadow-sm">
+                        <div class="text-gray-600 text-xs font-medium mb-2">总减排</div>
+                        <div class="text-2xl font-black text-emerald-700 leading-tight"><span class="total-carbon">24.5</span><span class="text-base font-bold">kg</span></div>
+                    </div>
+                    <div class="bg-sky-50 rounded-2xl p-4 text-center shadow-sm">
+                        <div class="text-gray-600 text-xs font-medium mb-2">已种树</div>
+                        <div class="text-2xl font-black text-sky-700 leading-tight">3<span class="text-base font-bold">棵</span></div>
+                    </div>
+                    <div class="bg-purple-50 rounded-2xl p-4 text-center shadow-sm">
+                        <div class="text-gray-600 text-xs font-medium mb-2">减排成就</div>
+                        <div class="text-2xl font-black text-purple-700 leading-tight">12<span class="text-base font-bold">枚</span></div>
                     </div>
                 </div>
             </div>
 
-            <!-- 碳排放趋势图表 -->
+            <!-- 减排趋势（过去7天） -->
             <div class="px-4 mt-4">
                 <div class="bg-white rounded-2xl p-4 shadow-sm">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-gray-800 font-semibold text-base">本周碳足迹趋势</span>
-                        <span class="text-emerald-600 text-xs bg-emerald-50 px-2 py-0.5 rounded-full">本周 ↓12%</span>
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="ph-bold ph-chart-line-up text-emerald-500 text-lg"></i>
+                        <span class="text-gray-800 font-semibold text-base">减排趋势（过去7天）</span>
                     </div>
-                    <div id="chart" class="w-full h-40"></div>
-                    <div class="flex items-center justify-center gap-6 mt-2 text-xs text-gray-400">
-                        <div class="flex items-center gap-1">
-                            <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
-                            <span>日减碳量(g)</span>
-                        </div>
-                    </div>
+                    <div id="chart" class="w-full h-44"></div>
                 </div>
             </div>
 
-            <!-- 成就勋章墙预览 -->
+            <!-- 成就勋章 -->
             <div class="px-4 mt-4">
                 <div class="bg-white rounded-2xl p-4 shadow-sm">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-sm font-bold text-gray-800">成就勋章</h3>
-                        <span class="text-emerald-600 text-xs">全部勋章 &gt;</span>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-base font-bold text-gray-800">成就勋章</h3>
+                        <span class="text-emerald-600 text-sm font-medium">全部勋章 &gt;</span>
                     </div>
-                    <div class="flex justify-between px-2">
-                        <div class="flex flex-col items-center space-y-1">
-                            <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center">
+                    <div class="flex justify-between px-1">
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center">
                                 <i class="ph-bold ph-sneaker-move text-3xl text-emerald-500"></i>
                             </div>
-                            <span class="text-[9px] text-gray-500">暴走达人</span>
+                            <span class="text-xs text-gray-600 text-center leading-tight">暴走达人</span>
                         </div>
-                        <div class="flex flex-col items-center space-y-1">
-                            <div class="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center">
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center">
                                 <i class="ph-bold ph-bicycle text-3xl text-gray-300"></i>
                             </div>
-                            <span class="text-[9px] text-gray-400">骑行专家</span>
+                            <span class="text-xs text-gray-400 text-center leading-tight">骑行专家</span>
                         </div>
-                        <div class="flex flex-col items-center space-y-1">
-                            <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center">
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center">
                                 <i class="ph-bold ph-plant text-3xl text-emerald-500"></i>
                             </div>
-                            <span class="text-[9px] text-gray-500">环保萌芽</span>
+                            <span class="text-xs text-gray-600 text-center leading-tight">环保萌芽</span>
                         </div>
-                        <div class="flex flex-col items-center space-y-1">
-                            <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center">
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center">
                                 <i class="ph-bold ph-sun-dim text-3xl text-emerald-500"></i>
                             </div>
-                            <span class="text-[9px] text-gray-500">早起减碳</span>
+                            <span class="text-xs text-gray-600 text-center leading-tight">早起减碳</span>
                         </div>
                     </div>
                 </div>
@@ -194,7 +183,19 @@
                         </div>
                         <i class="ph-bold ph-caret-right text-gray-400"></i>
                     </div>
-                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" data-type="cart">
+                    <a class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" href="wallet.html">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+                                <i class="ph-bold ph-wallet text-emerald-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-800 font-medium text-sm">碳钱包</div>
+                                <div class="text-gray-400 text-xs">查看积分与提现</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-400"></i>
+                    </a>
+                    <a class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" href="cart.html">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
                                 <i class="ph-bold ph-shopping-cart text-emerald-500"></i>
@@ -205,7 +206,7 @@
                             </div>
                         </div>
                         <i class="ph-bold ph-caret-right text-gray-400"></i>
-                    </div>
+                    </a>
                     <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" data-type="orders">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center">
@@ -263,7 +264,7 @@
             <!-- 其他功能 -->
             <div class="px-4 mt-4 pb-4">
                 <div class="bg-white rounded-2xl p-2 shadow-sm">
-                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer">
+                    <a class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" href="announcements.html">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
                                 <i class="ph-bold ph-bell text-gray-500"></i>
@@ -274,8 +275,8 @@
                             <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">3</span>
                             <i class="ph-bold ph-caret-right text-gray-400"></i>
                         </div>
-                    </div>
-                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer">
+                    </a>
+                    <a class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" href="help.html">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
                                 <i class="ph-bold ph-question text-gray-500"></i>
@@ -283,8 +284,8 @@
                             <div class="text-gray-800 font-medium text-sm">帮助与反馈</div>
                         </div>
                         <i class="ph-bold ph-caret-right text-gray-400"></i>
-                    </div>
-                    <div class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer">
+                    </a>
+                    <a class="profile-menu-item flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 cursor-pointer" href="about.html">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
                                 <i class="ph-bold ph-info text-gray-500"></i>
@@ -292,7 +293,7 @@
                             <div class="text-gray-800 font-medium text-sm">关于我们</div>
                         </div>
                         <i class="ph-bold ph-caret-right text-gray-400"></i>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -325,5 +326,34 @@
 
     <script src="js/mock-data.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        (function () {
+            function tuneProfileChart() {
+                var dom = document.getElementById('chart');
+                if (!dom || typeof echarts === 'undefined') return;
+                var inst = echarts.getInstanceByDom(dom);
+                if (!inst) return;
+                inst.setOption({
+                    grid: { top: 16, bottom: 28, left: 36, right: 12 },
+                    yAxis: {
+                        max: 250,
+                        interval: 50,
+                        splitLine: { lineStyle: { type: 'dashed', color: '#f1f5f9' } },
+                        axisLabel: { color: '#94a3b8', fontSize: 10 }
+                    },
+                    series: [{
+                        smooth: true,
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: 'rgba(16, 185, 129, 0.35)' },
+                                { offset: 1, color: 'rgba(16, 185, 129, 0.02)' }
+                            ])
+                        }
+                    }]
+                });
+            }
+            setTimeout(tuneProfileChart, 80);
+        })();
+    </script>
 </body>
 </html>

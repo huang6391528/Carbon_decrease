@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人碳名片 - 碳路者·青碳行</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { background: #0f172a; }
+        .qr-placeholder {
+            background: repeating-linear-gradient(
+                0deg,
+                #1e293b 0px, #1e293b 8px,
+                #0f172a 8px, #0f172a 16px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                #1e293b 0px, #1e293b 8px,
+                #0f172a 8px, #0f172a 16px
+            );
+        }
+    </style>
+</head>
+<body data-page="qrcode">
+    <div class="phone-container" style="background:#0f172a;">
+        <!-- 顶部 -->
+        <div class="px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="text-white/70"><i class="ph-bold ph-arrow-left text-xl"></i></a>
+            <span class="text-white font-bold">个人碳名片</span>
+            <a href="index.html" class="text-emerald-400 text-sm">返回</a>
+        </div>
+
+        <!-- 名片主体 -->
+        <div class="h-[640px] overflow-y-auto pb-24 px-4">
+            <div class="mt-4 bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-6 shadow-2xl">
+                <!-- 用户信息 -->
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-emerald-500 p-0.5 bg-emerald-500">
+                        <img src="https://modao.cc/agent-py/media/generated_images/2026-03-29/dcd31a5496fe4151ba6851123f2f3cfa.jpg" alt="头像" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-white font-bold text-lg">小碳</span>
+                            <span class="bg-emerald-500/20 text-emerald-400 text-[9px] px-2 py-0.5 rounded-full font-bold">LV.4</span>
+                        </div>
+                        <div class="text-gray-400 text-xs">同济大学 · 环境工程学院</div>
+                        <div class="flex items-center gap-1 mt-1">
+                            <i class="ph-bold ph-seal-check text-yellow-400 text-xs"></i>
+                            <span class="text-emerald-400 text-[10px]">已认证学生</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 碳数据 -->
+                <div class="grid grid-cols-3 gap-3 mb-6">
+                    <div class="bg-slate-700/50 rounded-2xl p-3 text-center">
+                        <div class="text-emerald-400 text-lg font-black carbon-score">1,286</div>
+                        <div class="text-gray-500 text-[10px] mt-1">碳积分(g)</div>
+                    </div>
+                    <div class="bg-slate-700/50 rounded-2xl p-3 text-center">
+                        <div class="text-white text-lg font-black">24.5</div>
+                        <div class="text-gray-500 text-[10px] mt-1">总减排(kg)</div>
+                    </div>
+                    <div class="bg-slate-700/50 rounded-2xl p-3 text-center">
+                        <div class="text-white text-lg font-black">12</div>
+                        <div class="text-gray-500 text-[10px] mt-1">校内排名</div>
+                    </div>
+                </div>
+
+                <!-- 二维码 -->
+                <div class="bg-white rounded-2xl p-6 text-center mb-4">
+                    <div class="w-40 h-40 mx-auto bg-gray-100 rounded-2xl flex items-center justify-center mb-3 qr-placeholder">
+                        <div class="text-center">
+                            <i class="ph-bold ph-qr-code text-5xl text-slate-600"></i>
+                            <div class="text-[9px] text-gray-400 mt-1">碳名片二维码</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-xs">扫码查看我的碳足迹 · 碳路者·青碳行</p>
+                </div>
+
+                <!-- 分享按钮 -->
+                <div class="flex gap-3 mb-4">
+                    <button id="share-card" class="flex-1 bg-emerald-500 text-white py-3 rounded-2xl font-bold text-sm flex items-center justify-center gap-2">
+                        <i class="ph-bold ph-share-network"></i> 分享名片
+                    </button>
+                    <button id="save-card" class="flex-1 bg-slate-700 text-white py-3 rounded-2xl font-bold text-sm flex items-center justify-center gap-2">
+                        <i class="ph-bold ph-download-simple"></i> 保存图片
+                    </button>
+                </div>
+
+                <!-- 碳勋章墙 -->
+                <div class="bg-slate-700/50 rounded-2xl p-4">
+                    <div class="text-gray-300 text-sm font-bold mb-3">我的碳勋章</div>
+                    <div class="flex justify-between">
+                        <div class="flex flex-col items-center">
+                            <div class="w-12 h-12 bg-emerald-500/20 rounded-2xl flex items-center justify-center mb-1">
+                                <i class="ph-bold ph-sneaker-move text-xl text-emerald-400"></i>
+                            </div>
+                            <span class="text-gray-500 text-[9px]">暴走达人</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-12 h-12 bg-emerald-500/20 rounded-2xl flex items-center justify-center mb-1">
+                                <i class="ph-bold ph-plant text-xl text-emerald-400"></i>
+                            </div>
+                            <span class="text-gray-500 text-[9px]">环保萌芽</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-12 h-12 bg-emerald-500/20 rounded-2xl flex items-center justify-center mb-1">
+                                <i class="ph-bold ph-sun-dim text-xl text-emerald-400"></i>
+                            </div>
+                            <span class="text-gray-500 text-[9px]">早起减碳</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-12 h-12 bg-slate-600/50 rounded-2xl flex items-center justify-center mb-1">
+                                <i class="ph-bold ph-bicycle text-xl text-gray-600"></i>
+                            </div>
+                            <span class="text-gray-600 text-[9px]">骑行专家</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 低碳宣言 -->
+            <div class="mt-4 bg-slate-800/50 rounded-2xl p-4 mb-4">
+                <div class="flex items-center gap-2 mb-2">
+                    <i class="ph-bold ph-chat-text text-emerald-400"></i>
+                    <span class="text-gray-300 text-sm font-bold">低碳宣言</span>
+                </div>
+                <p class="text-gray-400 text-xs leading-relaxed">"每一次步行、每一次光盘、每一次垃圾分类，都是对地球最好的告白。"</p>
+            </div>
+        </div>
+
+        <!-- 底部 TabBar -->
+        <div class="absolute bottom-0 w-full h-20 bg-slate-900 border-t border-slate-700 px-6 flex justify-between items-center pb-4">
+            <a class="flex flex-col items-center text-gray-400" href="index.html">
+                <i class="ph-bold ph-house text-2xl"></i><span class="text-[10px] mt-1 font-medium">首页</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="checkin.html">
+                <i class="ph-bold ph-calendar-check text-2xl"></i><span class="text-[10px] mt-1 font-medium">打卡</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="social.html">
+                <i class="ph-bold ph-users-three text-2xl"></i><span class="text-[10px] mt-1 font-medium">动态</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400 relative" href="mall.html">
+                <i class="ph-bold ph-shopping-bag text-2xl"></i><span class="text-[10px] mt-1 font-medium">商城</span>
+                <span class="cart-badge absolute top-0 right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
+            <a class="flex flex-col items-center text-gray-400" href="profile.html">
+                <i class="ph-bold ph-user text-2xl"></i><span class="text-[10px] mt-1 font-medium">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="js/mock-data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        (function() {
+            document.getElementById('share-card').addEventListener('click', function() {
+                showToast('名片链接已复制到剪贴板');
+            });
+            document.getElementById('save-card').addEventListener('click', function() {
+                showToast('图片保存成功（演示模式）');
+            });
+        })();
+    </script>
+</body>
+</html>

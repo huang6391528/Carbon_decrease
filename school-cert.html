@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园实名认证 - 碳路者·青碳行</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { background: #e2e8f0; }
+    </style>
+</head>
+<body data-page="school-cert">
+    <div class="phone-container">
+        <!-- 顶部状态栏 -->
+        <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
+            <div class="text-gray-400 text-sm">2026年3月29日</div>
+            <div class="flex items-center gap-1">
+                <i class="ph-bold ph-cell-signal-full text-sm text-gray-600"></i>
+                <i class="ph-bold ph-wifi-high text-sm text-gray-600"></i>
+                <i class="ph-bold ph-battery-full text-sm text-gray-600"></i>
+            </div>
+        </div>
+
+        <!-- 页面头部 -->
+        <div class="bg-white px-4 pt-4 pb-3">
+            <div class="flex items-center justify-between">
+                <a href="login.html" class="text-gray-600">
+                    <i class="ph-bold ph-arrow-left text-xl"></i>
+                </a>
+                <span class="text-gray-800 font-bold text-lg">校园实名认证</span>
+                <div class="w-6"></div>
+            </div>
+        </div>
+
+        <!-- 可滚动内容区 -->
+        <div class="h-[640px] overflow-y-auto pb-24 px-4 pt-4">
+            <!-- 认证说明 -->
+            <div class="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl p-5 text-white mb-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
+                        <i class="ph-bold ph-graduation-cap text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base">校园实名认证有什么用？</h3>
+                        <p class="text-emerald-100 text-xs mt-0.5">解锁专属权益，助力校园竞赛</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-white/10 rounded-xl px-3 py-2">
+                        <div class="text-sm font-bold">碳积分加成</div>
+                        <div class="text-[10px] text-emerald-100">认证学生享 20% 积分加成</div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl px-3 py-2">
+                        <div class="text-sm font-bold">校园竞赛</div>
+                        <div class="text-[10px] text-emerald-100">参与校园减碳PK赛资格</div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl px-3 py-2">
+                        <div class="text-sm font-bold">奖学金兑换</div>
+                        <div class="text-[10px] text-emerald-100">解锁高额积分兑换权益</div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl px-3 py-2">
+                        <div class="text-sm font-bold">荣誉证书</div>
+                        <div class="text-[10px] text-emerald-100">获得碳减排电子证书</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 认证表单 -->
+            <div class="bg-white rounded-2xl p-5 shadow-sm mb-6">
+                <h3 class="text-gray-800 font-bold text-base mb-4">填写认证信息</h3>
+                <div class="space-y-4">
+                    <!-- 学校选择 -->
+                    <div>
+                        <label class="text-gray-500 text-xs font-bold ml-1 mb-1 block">学校名称</label>
+                        <div class="relative">
+                            <select id="school-select" class="w-full bg-gray-50 border-none rounded-2xl py-3 px-4 text-sm text-gray-800 outline-none appearance-none pr-10">
+                                <option value="">请选择您的学校</option>
+                                <option value="guizhou">贵州大学</option>
+                                <option value="tsinghua">清华大学</option>
+                                <option value="peking">北京大学</option>
+                                <option value="fudan">复旦大学</option>
+                                <option value="tongji">同济大学</option>
+                                <option value="zhejiang">浙江大学</option>
+                                <option value="other">其他高校</option>
+                            </select>
+                            <div class="absolute right-4 top-3.5 pointer-events-none">
+                                <i class="ph-bold ph-caret-down text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 学院选择 -->
+                    <div>
+                        <label class="text-gray-500 text-xs font-bold ml-1 mb-1 block">学院/学部</label>
+                        <div class="relative">
+                            <select id="college-select" class="w-full bg-gray-50 border-none rounded-2xl py-3 px-4 text-sm text-gray-800 outline-none appearance-none pr-10">
+                                <option value="">请选择学院</option>
+                                <option>经济学院</option>
+                                <option>计算机学院</option>
+                                <option>环境工程学院</option>
+                                <option>机械工程学院</option>
+                                <option>法学院</option>
+                                <option>文学院</option>
+                                <option>理学院</option>
+                                <option>医学院</option>
+                                <option>其他</option>
+                            </select>
+                            <div class="absolute right-4 top-3.5 pointer-events-none">
+                                <i class="ph-bold ph-caret-down text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 学号 -->
+                    <div>
+                        <label class="text-gray-500 text-xs font-bold ml-1 mb-1 block">学号</label>
+                        <input id="student-id" class="w-full bg-gray-50 border-none rounded-2xl py-3 px-4 text-sm text-gray-800 outline-none" placeholder="请输入您的学号" type="text">
+                    </div>
+
+                    <!-- 姓名 -->
+                    <div>
+                        <label class="text-gray-500 text-xs font-bold ml-1 mb-1 block">真实姓名</label>
+                        <input id="real-name" class="w-full bg-gray-50 border-none rounded-2xl py-3 px-4 text-sm text-gray-800 outline-none" placeholder="请输入您的真实姓名（仅用于认证）" type="text">
+                    </div>
+
+                    <!-- 身份证号 -->
+                    <div>
+                        <label class="text-gray-500 text-xs font-bold ml-1 mb-1 block">身份证号</label>
+                        <input id="id-number" class="w-full bg-gray-50 border-none rounded-2xl py-3 px-4 text-sm text-gray-800 outline-none" placeholder="请输入身份证号（仅用于认证）" type="text">
+                        <p class="text-gray-400 text-[10px] mt-1 ml-1">您的信息受《个人信息保护法》保护，仅用于校园身份核验</p>
+                    </div>
+
+                    <!-- 手机号 -->
+                    <div>
+                        <label class="text-gray-500 text-xs font-bold ml-1 mb-1 block">手机号</label>
+                        <div class="flex gap-2">
+                            <input id="cert-phone" class="flex-1 bg-gray-50 border-none rounded-2xl py-3 px-4 text-sm text-gray-800 outline-none" placeholder="已验证的手机号" type="tel" value="12345678901">
+                            <button id="cert-send-code" class="bg-emerald-100 text-emerald-600 text-xs font-bold px-3 py-2 rounded-xl whitespace-nowrap">获取验证码</button>
+                        </div>
+                    </div>
+
+                    <!-- 验证码 -->
+                    <div>
+                        <label class="text-gray-500 text-xs font-bold ml-1 mb-1 block">验证码</label>
+                        <input id="cert-code" class="w-full bg-gray-50 border-none rounded-2xl py-3 px-4 text-sm text-gray-800 outline-none" placeholder="请输入6位验证码" type="text" maxlength="6">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 认证协议 -->
+            <div class="bg-white rounded-2xl p-4 shadow-sm mb-6">
+                <div class="flex items-start gap-2">
+                    <input id="cert-agree" class="rounded text-emerald-500 focus:ring-0 mt-0.5 cursor-pointer" type="checkbox">
+                    <label for="cert-agree" class="text-gray-500 text-xs leading-relaxed cursor-pointer">我已阅读并同意 <a class="text-emerald-600" href="#">《校园实名认证服务协议》</a> 与 <a class="text-emerald-600" href="#">《个人信息保护声明》</a>，确认以上信息真实有效。</label>
+                </div>
+            </div>
+
+            <!-- 提交按钮 -->
+            <button id="cert-submit" class="w-full bg-emerald-500 text-white font-bold py-4 rounded-2xl text-base shadow-lg shadow-emerald-100">
+                提交认证
+            </button>
+            <p class="text-center text-gray-400 text-xs mt-3 mb-6">认证审核通常在 1-3 个工作日内完成</p>
+        </div>
+    </div>
+
+    <script src="js/mock-data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        (function() {
+            // 获取验证码
+            var sendBtn = document.getElementById('cert-send-code');
+            if (sendBtn) {
+                sendBtn.addEventListener('click', function() {
+                    var sec = 60;
+                    sendBtn.disabled = true;
+                    sendBtn.textContent = sec + 's';
+                    var timer = setInterval(function() {
+                        sec--;
+                        if (sec <= 0) {
+                            clearInterval(timer);
+                            sendBtn.disabled = false;
+                            sendBtn.textContent = '获取验证码';
+                        } else {
+                            sendBtn.textContent = sec + 's';
+                        }
+                    }, 1000);
+                    showToast('验证码已发送');
+                });
+            }
+
+            // 提交认证
+            var submitBtn = document.getElementById('cert-submit');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function() {
+                    var school = document.getElementById('school-select').value;
+                    var college = document.getElementById('college-select').value;
+                    var studentId = document.getElementById('student-id').value;
+                    var realName = document.getElementById('real-name').value;
+                    var idNumber = document.getElementById('id-number').value;
+                    var certCode = document.getElementById('cert-code').value;
+                    var agreed = document.getElementById('cert-agree').checked;
+
+                    if (!school) { showToast('请选择学校'); return; }
+                    if (!college) { showToast('请选择学院'); return; }
+                    if (!studentId) { showToast('请输入学号'); return; }
+                    if (!realName) { showToast('请输入真实姓名'); return; }
+                    if (!idNumber || idNumber.length < 15) { showToast('请输入正确的身份证号'); return; }
+                    if (!certCode || certCode.length < 4) { showToast('请输入验证码'); return; }
+                    if (!agreed) { showToast('请阅读并同意认证协议'); return; }
+
+                    showModal('提交成功', '<p class="text-gray-600 text-sm text-center leading-relaxed">您的校园实名认证申请已提交！</p><p class="text-gray-500 text-xs text-center mt-2">审核结果将在 1-3 个工作日内以短信形式通知您。</p>', [
+                        '<a href="index.html" class="flex-1 bg-emerald-500 text-white py-2 rounded-xl font-medium text-center modal-close">返回首页</a>'
+                    ]);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
