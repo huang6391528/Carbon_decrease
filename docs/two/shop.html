@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>绿动校园 - 绿动商城</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+<style>
+        body { font-family: sans-serif; background-color: #f0f4f8; }
+        .comic-card { background: white; border: 2px solid #333; border-radius: 20px; box-shadow: 4px 4px 0px rgba(0,0,0,0.1); }
+        .buy-btn { background: linear-gradient(to bottom, #FF9D5C, #F97316); border: 2px solid #333; box-shadow: 2px 2px 0px #333; }
+        .countdown { background: #333; color: #FF9D5C; font-family: monospace; padding: 2px 4px; border-radius: 4px; }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen">
+<div class="relative w-[375px] h-[812px] bg-white overflow-hidden border-[8px] border-gray-800 rounded-[3rem] shadow-2xl">
+<!-- 积分显示 -->
+<header class="pt-12 px-6 flex justify-between items-end">
+<div>
+<p class="text-xs font-bold text-gray-400 mb-1">我的碳积分</p>
+<div class="flex items-center gap-2">
+<iconify-icon icon="fluent-emoji:coin" width="24"></iconify-icon>
+<span class="text-4xl font-black text-gray-800">1,280</span>
+</div>
+</div>
+<a class="text-xs text-orange-500 font-bold border-b border-orange-500 mb-1" href="#">积分规则?</a>
+</header>
+<!-- 内容区域 -->
+<main class="h-[630px] overflow-y-auto pb-24 no-scrollbar px-6 mt-6">
+<!-- 导航标签 -->
+<nav class="flex gap-4 border-b-2 border-gray-100 pb-2 mb-6 overflow-x-auto no-scrollbar">
+<button class="text-sm font-black text-gray-800 border-b-4 border-orange-400 pb-2 whitespace-nowrap">全部</button>
+<button class="text-sm font-bold text-gray-400 pb-2 whitespace-nowrap">限时抢</button>
+<button class="text-sm font-bold text-gray-400 pb-2 whitespace-nowrap">校园服务</button>
+<button class="text-sm font-bold text-gray-400 pb-2 whitespace-nowrap">商品兑换</button>
+<button class="text-sm font-bold text-gray-400 pb-2 whitespace-nowrap">碳汇交易</button>
+</nav>
+<!-- 推荐轮播 (模拟) -->
+<section class="mb-6">
+<div class="comic-card bg-blue-400 p-4 h-32 flex items-center justify-between relative overflow-hidden">
+<div class="z-10 text-white">
+<h4 class="font-black text-lg">认养一棵侧柏</h4>
+<p class="text-xs opacity-90">阿拉善左旗 2026计划</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="text-xs font-bold bg-white/30 px-2 py-0.5 rounded-full">500 积分</span>
+</div>
+</div>
+<iconify-icon class="opacity-40 absolute -right-2 -bottom-2" icon="fluent-emoji:deciduous-tree" width="80"></iconify-icon>
+</div>
+</section>
+<!-- 限时抢购倒计时 -->
+<section class="mb-6 flex items-center justify-between bg-gray-50 p-3 rounded-xl border border-gray-200">
+<div class="flex items-center gap-2">
+<iconify-icon icon="fluent-emoji:alarm-clock" width="20"></iconify-icon>
+<span class="text-xs font-bold">限时特惠抢购</span>
+</div>
+<div class="flex gap-1 items-center">
+<span class="countdown text-[10px]">02</span>
+<span class="text-[10px] font-bold">:</span>
+<span class="countdown text-[10px]">45</span>
+<span class="text-[10px] font-bold">:</span>
+<span class="countdown text-[10px]">12</span>
+</div>
+</section>
+<!-- 商品网格 -->
+<section class="grid grid-cols-2 gap-4">
+<div class="comic-card p-2 flex flex-col">
+<div class="bg-gray-100 rounded-xl aspect-square mb-2 overflow-hidden border border-gray-200">
+<img alt="Product" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-05/6a446b4f7a794931b9688cd3f9f5313c.jpg"/>
+</div>
+<h5 class="text-xs font-bold text-gray-800 line-clamp-1">校园图书馆静音贴纸</h5>
+<p class="text-[10px] text-gray-400 mt-1 mb-2">限量手绘版</p>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-xs font-black text-orange-500">200 pt</span>
+<button class="buy-btn text-white text-[10px] px-2 py-1 rounded-lg font-bold">兑换</button>
+</div>
+</div>
+<div class="comic-card p-2 flex flex-col">
+<div class="bg-gray-100 rounded-xl aspect-square mb-2 overflow-hidden border border-gray-200">
+<img alt="Product" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-05/6a446b4f7a794931b9688cd3f9f5313c.jpg"/>
+</div>
+<h5 class="text-xs font-bold text-gray-800 line-clamp-1">食堂0.5元优惠券</h5>
+<p class="text-[10px] text-gray-400 mt-1 mb-2">光盘专用</p>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-xs font-black text-orange-500">50 pt</span>
+<button class="buy-btn text-white text-[10px] px-2 py-1 rounded-lg font-bold">兑换</button>
+</div>
+</div>
+<div class="comic-card p-2 flex flex-col">
+<div class="bg-gray-100 rounded-xl aspect-square mb-2 overflow-hidden border border-gray-200">
+<img alt="Product" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-05/6a446b4f7a794931b9688cd3f9f5313c.jpg"/>
+</div>
+<h5 class="text-xs font-bold text-gray-800 line-clamp-1">环保帆布购物袋</h5>
+<p class="text-[10px] text-gray-400 mt-1 mb-2">减少塑料使用</p>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-xs font-black text-orange-500">800 pt</span>
+<button class="buy-btn text-white text-[10px] px-2 py-1 rounded-lg font-bold">兑换</button>
+</div>
+</div>
+<div class="comic-card p-2 flex flex-col">
+<div class="bg-gray-100 rounded-xl aspect-square mb-2 overflow-hidden border border-gray-200">
+<img alt="Product" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-05/6a446b4f7a794931b9688cd3f9f5313c.jpg"/>
+</div>
+<h5 class="text-xs font-bold text-gray-800 line-clamp-1">碳汇证书 Lvl.1</h5>
+<p class="text-[10px] text-gray-400 mt-1 mb-2">电子版纪念</p>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-xs font-black text-orange-500">1000 pt</span>
+<button class="buy-btn text-white text-[10px] px-2 py-1 rounded-lg font-bold">兑换</button>
+</div>
+</div>
+</section>
+<!-- 底部入口 -->
+<section class="mt-8 mb-4">
+<div class="flex justify-between items-center text-xs font-bold text-gray-400 border-t pt-4">
+<span>已经到底啦 ~</span>
+<a class="flex items-center gap-1 text-gray-600" href="#">
+                        查看兑换记录 <iconify-icon icon="line-md:chevron-right"></iconify-icon>
+</a>
+</div>
+</section>
+</main>
+<!-- 底部导航栏 -->
+<nav class="absolute bottom-0 w-full h-20 bg-white border-t-2 border-gray-800 flex justify-around items-center px-2 z-20">
+<a class="flex flex-col items-center gap-1 text-gray-400" href="index.html">
+<iconify-icon icon="line-md:home-md" width="24"></iconify-icon>
+<span class="text-[10px]">首页</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400" href="run.html">
+<iconify-icon icon="line-md:run-all" width="24"></iconify-icon>
+<span class="text-[10px]">校园跑</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400" href="carbon.html">
+<iconify-icon icon="line-md:leaf" width="24"></iconify-icon>
+<span class="text-[10px]">低碳</span>
+</a>
+<a class="flex flex-col items-center gap-1 tab-active" href="shop.html">
+<iconify-icon icon="line-md:shopping-cart" width="24"></iconify-icon>
+<span class="text-[10px]">商城</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400" href="profile.html">
+<iconify-icon icon="line-md:account" width="24"></iconify-icon>
+<span class="text-[10px]">我的</span>
+</a>
+</nav>
+</div>
+</body>
+</html>

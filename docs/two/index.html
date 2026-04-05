@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>绿动校园 - 首页</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+        body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; background-color: #f0f4f8; }
+        .hand-drawn { border: 2px solid #333; border-radius: 25px; box-shadow: 4px 4px 0px #333; }
+        .comic-card { background: white; border: 2px solid #333; border-radius: 20px; box-shadow: 4px 4px 0px rgba(0,0,0,0.1); }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        .bird-fly { animation: fly 15s linear infinite; position: absolute; }
+        @keyframes fly { from { left: -50px; } to { left: 400px; } }
+        .tab-active { color: #FF9D5C; transform: scale(1.1); font-weight: bold; }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen">
+<div class="relative w-[375px] h-[812px] bg-white overflow-hidden border-[8px] border-gray-800 rounded-[3rem] shadow-2xl">
+<!-- 背景装饰 -->
+<div class="absolute top-10 left-10 opacity-20 animate-float">
+<iconify-icon icon="fluent-emoji:cloud" width="40"></iconify-icon>
+</div>
+<div class="bird-fly top-20 opacity-30">
+<iconify-icon icon="line-md:twitter" width="20"></iconify-icon>
+</div>
+<!-- 顶部状态栏 -->
+<header class="pt-12 px-6 flex justify-between items-center relative z-10">
+<div class="flex items-center gap-2 bg-green-100 px-3 py-1 rounded-full border border-green-500 cursor-pointer">
+<iconify-icon class="text-green-600" icon="fluent-emoji:leafy-green"></iconify-icon>
+<span class="text-sm font-bold text-green-700">1,280 积分</span>
+</div>
+<div class="relative cursor-pointer">
+<iconify-icon class="text-gray-600" icon="line-md:bell-loop" width="24"></iconify-icon>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+</div>
+</header>
+<!-- 内容滚动区 -->
+<main class="px-6 pt-4 h-[630px] overflow-y-auto pb-20 no-scrollbar">
+<!-- 个人卡片 -->
+<section class="comic-card p-4 mb-6 bg-gradient-to-br from-orange-50 to-white">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 rounded-full border-2 border-orange-400 p-1 bg-white">
+<img alt="Avatar" class="w-full h-full rounded-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-04-05/40b39034970a46cd88e27de3f0ed15fa.jpg"/>
+</div>
+<div>
+<h2 class="text-lg font-bold text-gray-800">李小绿 <span class="text-xs font-normal text-gray-500">青藤大学</span></h2>
+<div class="flex items-center gap-2 mt-1">
+<iconify-icon class="animate-pulse" icon="fluent-emoji:fire"></iconify-icon>
+<span class="text-xs text-orange-600 font-bold">连续打卡 12 天</span>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold text-green-700">
+<span>树木守护进度 (3.2棵)</span>
+<span>80%</span>
+</div>
+<div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden border border-gray-300">
+<div class="h-full bg-green-400 w-[80%] rounded-full relative">
+<iconify-icon class="absolute right-0 -top-1" icon="fluent-emoji:deciduous-tree" width="16"></iconify-icon>
+</div>
+</div>
+</div>
+</section>
+<!-- 三列指标 -->
+<section class="grid grid-cols-3 gap-3 mb-6">
+<div class="comic-card p-2 text-center bg-blue-50">
+<iconify-icon class="text-blue-500" icon="line-md:run-all" width="24"></iconify-icon>
+<p class="text-[10px] text-gray-500 mt-1">今日运动</p>
+<p class="text-sm font-bold">1.2kg CO₂</p>
+</div>
+<div class="comic-card p-2 text-center bg-green-50">
+<iconify-icon class="text-green-500" icon="line-md:leaf" width="24"></iconify-icon>
+<p class="text-[10px] text-gray-500 mt-1">生活减排</p>
+<p class="text-sm font-bold">0.8kg CO₂</p>
+</div>
+<div class="comic-card p-2 text-center bg-yellow-50">
+<iconify-icon icon="fluent-emoji:trophy" width="24"></iconify-icon>
+<p class="text-[10px] text-gray-500 mt-1">全校排名</p>
+<p class="text-sm font-bold">28 名</p>
+</div>
+</section>
+<!-- 打卡网格 -->
+<section class="mb-6">
+<h3 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+<iconify-icon class="text-orange-500" icon="line-md:edit-twotone-full"></iconify-icon>
+                    低碳实验室
+                </h3>
+<div class="grid grid-cols-3 gap-4">
+<div class="flex flex-col items-center gap-1">
+<div class="w-14 h-14 comic-card flex items-center justify-center bg-orange-100 hover:scale-105 transition-transform">
+<iconify-icon icon="fluent-emoji:running-shoe" width="30"></iconify-icon>
+</div>
+<span class="text-xs font-medium">校园跑</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-14 h-14 comic-card flex items-center justify-center bg-green-100 hover:scale-105 transition-transform">
+<iconify-icon icon="fluent-emoji:bicycle" width="30"></iconify-icon>
+</div>
+<span class="text-xs font-medium">绿色出行</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-14 h-14 comic-card flex items-center justify-center bg-yellow-100 hover:scale-105 transition-transform">
+<iconify-icon icon="fluent-emoji:broccoli" width="30"></iconify-icon>
+</div>
+<span class="text-xs font-medium">低碳饮食</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-14 h-14 comic-card flex items-center justify-center bg-blue-100 hover:scale-105 transition-transform">
+<iconify-icon icon="fluent-emoji:package" width="30"></iconify-icon>
+</div>
+<span class="text-xs font-medium">减外卖</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-14 h-14 comic-card flex items-center justify-center bg-purple-100 hover:scale-105 transition-transform">
+<iconify-icon icon="fluent-emoji:recycling-symbol" width="30"></iconify-icon>
+</div>
+<span class="text-xs font-medium">旧物利用</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-14 h-14 comic-card flex items-center justify-center bg-teal-100 hover:scale-105 transition-transform">
+<iconify-icon icon="fluent-emoji:footprints" width="30"></iconify-icon>
+</div>
+<span class="text-xs font-medium">步行计步</span>
+</div>
+</div>
+</section>
+<!-- 任务卡片 -->
+<section class="comic-card p-4 mb-6 border-dashed bg-gray-50">
+<div class="flex justify-between items-center mb-3">
+<h3 class="font-bold text-gray-800">今日任务 3/5</h3>
+<iconify-icon class="text-gray-400" icon="line-md:arrow-right"></iconify-icon>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<iconify-icon class="text-green-500" icon="line-md:confirm-circle" width="20"></iconify-icon>
+<span class="text-sm text-gray-600 line-through">步行超过 5000 步</span>
+</li>
+<li class="flex items-center gap-3">
+<iconify-icon class="text-green-500" icon="line-md:confirm-circle" width="20"></iconify-icon>
+<span class="text-sm text-gray-600 line-through">不使用一次性餐具</span>
+</li>
+<li class="flex items-center gap-3">
+<iconify-icon class="text-gray-300" icon="line-md:circle" width="20"></iconify-icon>
+<span class="text-sm text-gray-800">参与一次校园慢跑</span>
+</li>
+</ul>
+</section>
+<!-- 活动轮播 -->
+<section class="mb-6 overflow-hidden rounded-2xl border-2 border-gray-800">
+<div class="bg-orange-400 p-4 h-32 flex justify-between items-center relative">
+<div class="text-white">
+<h4 class="font-black text-lg">校园马拉松</h4>
+<p class="text-xs opacity-90">开启你的绿色征途</p>
+<button class="mt-2 bg-white text-orange-500 text-[10px] px-3 py-1 rounded-full font-bold">立即报名</button>
+</div>
+<iconify-icon class="opacity-30 absolute right-0 bottom-0" icon="fluent-emoji:sport-utility-vehicle" width="80"></iconify-icon>
+</div>
+</section>
+</main>
+<!-- 底部导航栏 -->
+<nav class="absolute bottom-0 w-full h-20 bg-white border-t-2 border-gray-800 flex justify-around items-center px-2 z-20">
+<a class="flex flex-col items-center gap-1 tab-active" href="index.html">
+<iconify-icon icon="line-md:home-md" width="24"></iconify-icon>
+<span class="text-[10px]">首页</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400" href="run.html">
+<iconify-icon icon="line-md:run-all" width="24"></iconify-icon>
+<span class="text-[10px]">校园跑</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400" href="carbon.html">
+<iconify-icon icon="line-md:leaf" width="24"></iconify-icon>
+<span class="text-[10px]">低碳</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400" href="shop.html">
+<iconify-icon icon="line-md:shopping-cart" width="24"></iconify-icon>
+<span class="text-[10px]">商城</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400" href="profile.html">
+<iconify-icon icon="line-md:account" width="24"></iconify-icon>
+<span class="text-[10px]">我的</span>
+</a>
+</nav>
+</div>
+</body>
+</html>
